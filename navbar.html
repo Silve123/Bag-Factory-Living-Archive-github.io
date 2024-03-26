@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-nav-container{
+            position: fixed;
+            width: 100%;
+            height: 10vh;
+        }
+        .nav-container{
+            height: 5vh;
+            width: 100%;
+            padding: 1vh 1vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1vh;
+        }
+        .logo-container{
+            padding-right: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2vw;
+        }
+        .logo-container img{
+             margin-top: 5vh;
+            width: 5vw;
+            height: auto;
+        }
+        .nav-list-container{
+            height: 5vh;
+            width: 85%;
+            border-radius: 1em;
+        }
+        .nav-list-container ul {
+            display: flex;
+            justify-content: flex-end; 
+            margin-top: 1vh;
+        }
+        li{
+            list-style-type: none;
+        }
+        .nav-list-container ul li a, .artists-nav-list li a{
+            color: black;
+            margin: 0 0.5em;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            text-decoration: none;
+        }
+        .nav-list-container ul li a:hover, .artists-nav-list li a:hover{
+            background-color: black;
+            color: white;
+            border-radius: 1em;
+        }
+        .artists-nav-list-container{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .artists-nav-list {
+            margin-top: -0.5em;
+            margin-right: 1em;
+            border-radius: 1em;
+            display: none;
+            text-align: right;
+            flex-direction: column;
+            width: 20%;
+        }
+        .artist{
+            padding: 0.5em;
+        }
+        img, a:hover{
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 1024px)  {
+            .main-nav-container{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-nav-container">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="Landing-Page" class="image-link"><img href="Landing-Page" src="https://freight.cargo.site/t/original/i/d246fe77b2054702467626ecb98ea067cd9e0ee5f1dd0164591fcd95b7369e73/Bag-Facotry-Living-Archive-Project_Icon1.png" alt="logo"></a>
+            </div>
+            <div class="nav-list-container">
+                <ul>
+                    <li><a href="Landing-Page">Home</a></li>
+                    <li><a href="About-1">About</a></li>
+                    <li><a href="Publication">Publication</a></li>
+                    <li><a href="News-Events">News Events</a></li>
+                    <li><a href="Timeline">Timeline</a></li>
+                    <li><a id="artists-button" href="" class="active">Artists</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="artists-nav-list-container">
+            <ul class="artists-nav-list">
+                <li class="artist"><a href="Pat-Mautloa">Pat Mautloa</a></li>
+                <li class="artist"><a href="David-Koloane">David Koloane</a></li>
+                <li class="artist"><a href="Ben-Arnold">Ben Arnold</a></li>
+                <li class="artist"><a href="Sam-Nhlengethwa">Sam Nhlengethwa</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var artistsButton = document.getElementById('artists-button');
+            var artistsNavList = document.querySelector('.artists-nav-list');
+    
+            artistsButton.addEventListener('click', function () {
+                event.preventDefault();
+                toggleNavListVisibility(artistsNavList);
+            });
+    
+            function toggleNavListVisibility(navList) {
+                navList.style.display = (navList.style.display === 'none' || navList.style.display === '') ? 'flex' : 'none';
+            }
+        });
+    </script>
+</body>
+</html>

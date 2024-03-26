@@ -1,290 +1,300 @@
-<style>
-    @media only screen and (min-width: 1350px)  {
-        .mobile-container{
-            display: none;
-        }
-        .banner{
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        h1{
-            color: white;
-            font-weight: bold;
-            writing-mode: vertical-lr;
-            white-space: nowrap;
-            transform-origin: bottom;
-            font-size: 2.8vw;
-        }
-        area {
-            cursor: none;
-        }
-    
-        .hero-div {
-            width: 100%;
-            height: 100%;
-        }
-    
-        .hero-image-magnifier {
-            position: relative;
-            cursor: none;
-            display: flex;
-        }
-    
-        .img-magnifier-glass {
-            position: absolute;
-            border: 2px solid #000;
-            border-radius: 50%;
-            cursor: none;
-            width: 100px;
-            height: 100px;
-            pointer-events: none;
-        }
-        .hero-container {
-            width: 100%;
-            top: 0;
-        }
-        .hero-container img {
-            width: 1340px;
-            height: 640px;
-        }
-    
-        .area-tooltip {
-            position: absolute;
-            background-color: black;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            display: none;
-        }
-    }
-    @media only screen and (max-width: 1349px)  {
-        .hero-image-magnifier{
-            display: none;
-        }
-        .mobile-container{
-            width: 100%;
-            height: auto;
-        }
-        .row{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-        .row img{
-            width: 50%;
-            margin: 1%;
-            border-radius: 1em;
-        }
+<!--#include virtual="navbar.html" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (min-width: 1350px)  {
+            .mobile-container{
+                display: none;
+            }
+            .banner{
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            h1{
+                color: white;
+                font-weight: bold;
+                writing-mode: vertical-lr;
+                white-space: nowrap;
+                transform-origin: bottom;
+                font-size: 2.8vw;
+            }
+            area {
+                cursor: none;
+            }
         
-    }
-
-
-</style>
-
-<div class="holding_container">
-    <div class="hero-div">
-        <div class="hero-image-magnifier">
-            <div class="banner">
-                <img src="https://freight.cargo.site/t/thumbnail/w/73/i/d95eb2122da0307a3aa47941f9aacd52fcf7e127946c7c8ce99d2593aa103c7d/Left-Banner.png" alt="Left-Banner">
+            .hero-div {
+                width: 100%;
+                height: 100%;
+            }
+        
+            .hero-image-magnifier {
+                position: relative;
+                cursor: none;
+                display: flex;
+            }
+        
+            .img-magnifier-glass {
+                position: absolute;
+                border: 2px solid #000;
+                border-radius: 50%;
+                cursor: none;
+                width: 100px;
+                height: 100px;
+                pointer-events: none;
+            }
+            .hero-container {
+                width: 100%;
+                top: 0;
+            }
+            .hero-container img {
+                width: 1340px;
+                height: 640px;
+            }
+        
+            .area-tooltip {
+                position: absolute;
+                background-color: black;
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 1349px)  {
+            .hero-image-magnifier{
+                display: none;
+            }
+            .mobile-container{
+                width: 100%;
+                height: auto;
+            }
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+            .row img{
+                width: 50%;
+                margin: 1%;
+                border-radius: 1em;
+            }
+            
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="holding_container">
+        <div class="hero-div">
+            <div class="hero-image-magnifier">
+                <div class="banner">
+                    <img src="https://freight.cargo.site/t/thumbnail/w/73/i/d95eb2122da0307a3aa47941f9aacd52fcf7e127946c7c8ce99d2593aa103c7d/Left-Banner.png" alt="Left-Banner">
+                </div>
+                <div class="hero-container">
+                    <img id="myimage" src="https://files.cargocollective.com/c2174104/hero.png" usemap="#workmap"><br>
+                </div>
+                <map id="image-map" name="workmap">
+                    <area shape="rect" coords="200,70,100,140" alt="Pat Mautloa" href="Pat-Mautloa">
+                    <area shape="rect" coords="70,130,220,420" alt="Pat Mautloa" href="Pat-Mautloa">
+                    <area shape="rect" coords="280,40,200,120" alt="Willard Boepple" href="https://willardboepple.com/">
+                    <area shape="rect" coords="350,75,280,150" alt="Velile Soha" href="https://latitudes.online/artists/velile_soha">
+                    <area shape="rect" coords="220,120,350,250" alt="Velile Soha" href="https://latitudes.online/artists/velile_soha">
+                    <area shape="rect" coords="460,75,360,260" alt="Durant Sihlali" href="https://en.wikipedia.org/wiki/Durant_Sihlali">
+                    <area shape="rect" coords="460,65,580,230" alt="Sam Nhlengethwa" href="https://www.goodman-gallery.com/artists/sam-nhlengethwa">
+                    <area shape="rect" coords="590,50,730,250" alt="David Koloane" href="David-Koloane">
+                    <area shape="rect" coords="730,40,840,230" alt="Tony Nkotsi" href="https://www.artprintsa.com/tony-nkotsi.html">
+                    <area shape="rect" coords="860,80,1030,240" alt="Anthusa Sotiriades" href="https://pottery.co.za/about-us/felicity-potter/biography-and-cv/">
+                    <area shape="rect" coords="1060,50,1170,130" alt="Auther Molepo" href="https://wikisouthafrica.co.za/arthur-molepo/">
+                    <area shape="rect" coords="1040,110,1240,210" alt="Auther Molepo" href="https://wikisouthafrica.co.za/arthur-molepo/">
+                    <area shape="rect" coords="290,260,380, 300" alt="Bongi Dlomo" href="https://www.sahistory.org.za/people/bongiwe-bongi-dhlomo-mautloa">                    
+                    <area shape="rect" coords="290,280,330, 340" alt="Bongi Dlomo" href="https://www.sahistory.org.za/people/bongiwe-bongi-dhlomo-mautloa">                    
+                    <area shape="rect" coords="330,280,410,350" alt="Dumisane Mabaso" href="https://whag.co.za/exhibitions/untitled-dumisani-mabaso-retrospective">                    
+                    <area shape="rect" coords="250,350,445,450" alt="Dumisane Mabaso" href="https://whag.co.za/exhibitions/untitled-dumisani-mabaso-retrospective">                    
+                    <area shape="rect" coords="250,450,345,550" alt="Dumisane Mabaso" href="https://whag.co.za/exhibitions/untitled-dumisani-mabaso-retrospective">                    
+                    <area shape="rect" coords="400,290,460,340" alt="Cyril Manganyi" href="https://www.straussart.co.za/auctions/lot/28-nov-2022-art/83">                    
+                    <area shape="rect" coords="450,250,570,310" alt="Cyril Manganyi" href="https://www.straussart.co.za/auctions/lot/28-nov-2022-art/83">                    
+                    <area shape="rect" coords="580,270,720,350" alt="Sfiso Mkame" href="https://asai.co.za/artist/sfiso-ka-mkame/">                    
+                    <area shape="rect" coords="760,240,800,300" alt="Sophia Ainslie" href="https://www.sophiaainslie.com/">                    
+                    <area shape="rect" coords="800,240,850,350" alt="Sophia Ainslie" href="https://www.sophiaainslie.com/">                    
+                    <area shape="rect" coords="850,240,900,350" alt="Anna Varney" href="https://www.instagram.com/mrsannavarney/?hl=en">                    
+                    <area shape="rect" coords="900,240,960,300" alt="Anna Varney" href="https://www.instagram.com/mrsannavarney/?hl=en">                    
+                    <area shape="rect" coords="1070,190,1150,260" alt="Mpolokeng Ramphomane" href="https://www.contemporary-african-art.com/resistance-art.html">
+                    <area shape="rect" coords="1050,260,1130,300" alt="Mpolokeng Ramphomane" href="https://www.contemporary-african-art.com/resistance-art.html">
+                    <area shape="rect" coords="1070,260,1110,360" alt="Mpolokeng Ramphomane" href="https://www.contemporary-african-art.com/resistance-art.html">
+                    <area shape="rect" coords="450,310,555,460" alt="Sarah Tabane" href="https://davidkrutprojects.com/artists/102/kedibone-tabane">
+                    <area shape="rect" coords="350,450,450,550" alt="Sarah Tabane" href="https://davidkrutprojects.com/artists/102/kedibone-tabane">
+                    <area shape="rect" coords="555,350,670,590" alt="Billy Mandindi" href="https://en.wikipedia.org/wiki/Billy_Mandindi">
+                    <area shape="rect" coords="450,470,555,590" alt="Billy Mandindi" href="https://en.wikipedia.org/wiki/Billy_Mandindi">
+                    <area shape="rect" coords="670,350,730,510" alt="Hamilton Budaza" href="https://www.mutualart.com/Artist/Hamilton-Budaza/63ABDCBBF86496A7">
+                    <area shape="rect" coords="730,300,800,480" alt="Hamilton Budaza" href="https://www.mutualart.com/Artist/Hamilton-Budaza/63ABDCBBF86496A7">
+                    <area shape="rect" coords="800,350,860,450" alt="Hamilton Budaza" href="https://www.mutualart.com/Artist/Hamilton-Budaza/63ABDCBBF86496A7">
+                    <area shape="rect" coords="900,310,980,370" alt="Pat Skosana" href="https://asai.co.za/index/asai_artist/skosana-patricia-fikile-b-1964/">
+                    <area shape="rect" coords="870,350,960,450" alt="Pat Skosana" href="https://asai.co.za/index/asai_artist/skosana-patricia-fikile-b-1964/">
+                    <area shape="rect" coords="780,450,960,510" alt="Pat Skosana" href="https://asai.co.za/index/asai_artist/skosana-patricia-fikile-b-1964/">
+                    <area shape="rect" coords="870,510,1050,590" alt="Thami Jali" href="https://asai.co.za/artist/thami-jali/">
+                    <area shape="rect" coords="980,310,1050,510" alt="Thami Jali" href="https://asai.co.za/artist/thami-jali/">
+                    <area shape="rect" coords="1050,310,1100,390" alt="Thami Jali" href="https://asai.co.za/artist/thami-jali/">
+                    <area shape="rect" coords="1050,390,1300,590" alt="Kay Hassan" href="https://www.artsy.net/artist/kay-hassan">
+                    <area shape="rect" coords="1120,300,1220,580" alt=" Kay Hassan" href="https://www.artsy.net/artist/kay-hassan">
+                </map>
             </div>
-            <div class="hero-container">
-                <img id="myimage" src="https://files.cargocollective.com/c2174104/hero.png" usemap="#workmap"><br>
+            <div class="mobile-container">
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/f5dd79425a47dff9db6c0a09ef9034b57c3b694d27a04299b5a8409dea4710a6/Pat-Mautloa.png" alt="Pat-Mautloa">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/2bc301e46be1e5e437d74abd62f0642b9aeec77514c81f44e8785bba5f96e0b2/Wiiliard-Boepple.png" alt="Wiliard-Boepple">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/95933de1da1fe60fba8d71fa7d0c9a4945f2ce7dd1ab38794cbd1e045a8664c1/Velile-Soha.png" alt="Velile-Soha">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/fdc2bddf9f102bc6a7207d190074af6bacb42fd95f8c569782c4147a8941a0b7/Durant-Sihlali.png" alt="Durant-Sihlali">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/7827b32b3084a88d4322c88a437b48b99cbc4686dda39a6dea6d6a0f60c99c8f/Sam-Nhlengethwa.png" alt="Sam-Nhlengethwa">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/d623fb61e1b10d717d5d893979d8bd45127c73df73cab7fd05be2e5a94d7854a/David-Koloane.png" alt="David-Koloane">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/7282c5fde14ff7e64e0333c7979ec035e7f15c5cc43e7a627ad1da12e9ba2f9e/Tony-Nkotsi.png" alt="Tony-Nkotsi">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/0de93add165d25f470e1ba13aa25104421dd9defc3315c4fe5c6c3d936f2e0e9/Anthusa-Sotiriades.png" alt="Anthusa-Sotiriades">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/20f42d0ee29aa6cfcebc9556d78b4a6c260e74f6d0a4ed7671ce2cde6aef1d8f/Arthur-Molapo.png" alt="Arthur-Molapo">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/6482110e93957951859f3c7371a8f7a281a97471b73239f9036cca207de97a07/Bongi-Dlomo.png" alt="Bongi-Dlomo">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/486c7c6284e5943198c8d7ea50ea6e08fd1ccb7412b186e10b29027a0b50c89b/Cyril-Manganyi.png" alt="Cyril-Manganyi">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/1bd6ce243f0b5d0eedb727b9be700fc9fd5e0523f39e9087aba330a47928f038/Sifiso-Nkane.png" alt="Sifiso-Nkane">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/f9763d80005f82841c0e5bf65e18f53b81aeb242d2d5cb8e80935fa652e22cdb/Sophie-Ainslie.png" alt="Sophie-Ainslie">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/f3f5a6f86f2bfa2c7f1511026f93a5a939483964549ad25eb2746d5d099a0ce0/Ann-Varney.png" alt="Ann-Varney">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/d8732bbb07b51e9e62a9d12c3d9bef85540914546987c5cf9a40099c7c303235/Mpolokeng-Ramphomane.png" alt="Mpolokeng-Ramphomane">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/9ea53376b90217a47064fac966fca4db255bb45c384de33f472d59b9511f984c/Dumisane-Mabaso.png" alt="Dumisane-Mabaso">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/e7313ae22049884e63a25851db2fd1d2eab102b8cc7576f8600b2a65fe63ff76/Sarah-Tabane.png" alt="Sarah-Tabane">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/3828708a77d1a7b15494870264e5f2c0d24154c8828e6047b34df1d6cbcd3087/Billy-Mandindi.png" alt="Billy-Mandindi">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/649a90dd58930e29a9aae61c5ec21192d837020f1bcd68d5e8e087b3f3be4060/Hamilton-Budaza.png" alt="Hamilton-Budaza">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/360ed9975207e51883a2c1ef9a73168a66c0c72af9b32a583cac6c6b83d87bd1/Pat-Skosana.png" alt="Pat Skosana">
+                </div>
+                <div class="row">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/319e4efc5c77ce7e578abcb4062b348ab95a7783d1932ef005f2c1e667f6c4ca/Thami-Jami.png" alt="Thami-Jami">
+                    <img class="mobile-images" src="https://freight.cargo.site/t/original/i/1a138dc0cc91d766c876ac31f03e96eabea8943c4419d736a17ba2d7c8dbf222/Kay-Hassan.png" alt="Kay-Hassan">
+                </div>
+    
             </div>
-            <map id="image-map" name="workmap">
-                <area shape="rect" coords="200,70,100,140" alt="Pat Mautloa" href="Pat-Mautloa">
-                <area shape="rect" coords="70,130,220,420" alt="Pat Mautloa" href="Pat-Mautloa">
-                <area shape="rect" coords="280,40,200,120" alt="Willard Boepple" href="https://willardboepple.com/">
-                <area shape="rect" coords="350,75,280,150" alt="Velile Soha" href="https://latitudes.online/artists/velile_soha">
-                <area shape="rect" coords="220,120,350,250" alt="Velile Soha" href="https://latitudes.online/artists/velile_soha">
-                <area shape="rect" coords="460,75,360,260" alt="Durant Sihlali" href="https://en.wikipedia.org/wiki/Durant_Sihlali">
-                <area shape="rect" coords="460,65,580,230" alt="Sam Nhlengethwa" href="https://www.goodman-gallery.com/artists/sam-nhlengethwa">
-                <area shape="rect" coords="590,50,730,250" alt="David Koloane" href="David-Koloane">
-                <area shape="rect" coords="730,40,840,230" alt="Tony Nkotsi" href="https://www.artprintsa.com/tony-nkotsi.html">
-                <area shape="rect" coords="860,80,1030,240" alt="Anthusa Sotiriades" href="https://pottery.co.za/about-us/felicity-potter/biography-and-cv/">
-                <area shape="rect" coords="1060,50,1170,130" alt="Auther Molepo" href="https://wikisouthafrica.co.za/arthur-molepo/">
-                <area shape="rect" coords="1040,110,1240,210" alt="Auther Molepo" href="https://wikisouthafrica.co.za/arthur-molepo/">
-                <area shape="rect" coords="290,260,380, 300" alt="Bongi Dlomo" href="https://www.sahistory.org.za/people/bongiwe-bongi-dhlomo-mautloa">                    
-                <area shape="rect" coords="290,280,330, 340" alt="Bongi Dlomo" href="https://www.sahistory.org.za/people/bongiwe-bongi-dhlomo-mautloa">                    
-                <area shape="rect" coords="330,280,410,350" alt="Dumisane Mabaso" href="https://whag.co.za/exhibitions/untitled-dumisani-mabaso-retrospective">                    
-                <area shape="rect" coords="250,350,445,450" alt="Dumisane Mabaso" href="https://whag.co.za/exhibitions/untitled-dumisani-mabaso-retrospective">                    
-                <area shape="rect" coords="250,450,345,550" alt="Dumisane Mabaso" href="https://whag.co.za/exhibitions/untitled-dumisani-mabaso-retrospective">                    
-                <area shape="rect" coords="400,290,460,340" alt="Cyril Manganyi" href="https://www.straussart.co.za/auctions/lot/28-nov-2022-art/83">                    
-                <area shape="rect" coords="450,250,570,310" alt="Cyril Manganyi" href="https://www.straussart.co.za/auctions/lot/28-nov-2022-art/83">                    
-                <area shape="rect" coords="580,270,720,350" alt="Sfiso Mkame" href="https://asai.co.za/artist/sfiso-ka-mkame/">                    
-                <area shape="rect" coords="760,240,800,300" alt="Sophia Ainslie" href="https://www.sophiaainslie.com/">                    
-                <area shape="rect" coords="800,240,850,350" alt="Sophia Ainslie" href="https://www.sophiaainslie.com/">                    
-                <area shape="rect" coords="850,240,900,350" alt="Anna Varney" href="https://www.instagram.com/mrsannavarney/?hl=en">                    
-                <area shape="rect" coords="900,240,960,300" alt="Anna Varney" href="https://www.instagram.com/mrsannavarney/?hl=en">                    
-                <area shape="rect" coords="1070,190,1150,260" alt="Mpolokeng Ramphomane" href="https://www.contemporary-african-art.com/resistance-art.html">
-                <area shape="rect" coords="1050,260,1130,300" alt="Mpolokeng Ramphomane" href="https://www.contemporary-african-art.com/resistance-art.html">
-                <area shape="rect" coords="1070,260,1110,360" alt="Mpolokeng Ramphomane" href="https://www.contemporary-african-art.com/resistance-art.html">
-                <area shape="rect" coords="450,310,555,460" alt="Sarah Tabane" href="https://davidkrutprojects.com/artists/102/kedibone-tabane">
-                <area shape="rect" coords="350,450,450,550" alt="Sarah Tabane" href="https://davidkrutprojects.com/artists/102/kedibone-tabane">
-                <area shape="rect" coords="555,350,670,590" alt="Billy Mandindi" href="https://en.wikipedia.org/wiki/Billy_Mandindi">
-                <area shape="rect" coords="450,470,555,590" alt="Billy Mandindi" href="https://en.wikipedia.org/wiki/Billy_Mandindi">
-                <area shape="rect" coords="670,350,730,510" alt="Hamilton Budaza" href="https://www.mutualart.com/Artist/Hamilton-Budaza/63ABDCBBF86496A7">
-                <area shape="rect" coords="730,300,800,480" alt="Hamilton Budaza" href="https://www.mutualart.com/Artist/Hamilton-Budaza/63ABDCBBF86496A7">
-                <area shape="rect" coords="800,350,860,450" alt="Hamilton Budaza" href="https://www.mutualart.com/Artist/Hamilton-Budaza/63ABDCBBF86496A7">
-                <area shape="rect" coords="900,310,980,370" alt="Pat Skosana" href="https://asai.co.za/index/asai_artist/skosana-patricia-fikile-b-1964/">
-                <area shape="rect" coords="870,350,960,450" alt="Pat Skosana" href="https://asai.co.za/index/asai_artist/skosana-patricia-fikile-b-1964/">
-                <area shape="rect" coords="780,450,960,510" alt="Pat Skosana" href="https://asai.co.za/index/asai_artist/skosana-patricia-fikile-b-1964/">
-                <area shape="rect" coords="870,510,1050,590" alt="Thami Jali" href="https://asai.co.za/artist/thami-jali/">
-                <area shape="rect" coords="980,310,1050,510" alt="Thami Jali" href="https://asai.co.za/artist/thami-jali/">
-                <area shape="rect" coords="1050,310,1100,390" alt="Thami Jali" href="https://asai.co.za/artist/thami-jali/">
-                <area shape="rect" coords="1050,390,1300,590" alt="Kay Hassan" href="https://www.artsy.net/artist/kay-hassan">
-                <area shape="rect" coords="1120,300,1220,580" alt=" Kay Hassan" href="https://www.artsy.net/artist/kay-hassan">
-            </map>
-        </div>
-        <div class="mobile-container">
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/f5dd79425a47dff9db6c0a09ef9034b57c3b694d27a04299b5a8409dea4710a6/Pat-Mautloa.png" alt="Pat-Mautloa">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/2bc301e46be1e5e437d74abd62f0642b9aeec77514c81f44e8785bba5f96e0b2/Wiiliard-Boepple.png" alt="Wiliard-Boepple">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/95933de1da1fe60fba8d71fa7d0c9a4945f2ce7dd1ab38794cbd1e045a8664c1/Velile-Soha.png" alt="Velile-Soha">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/fdc2bddf9f102bc6a7207d190074af6bacb42fd95f8c569782c4147a8941a0b7/Durant-Sihlali.png" alt="Durant-Sihlali">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/7827b32b3084a88d4322c88a437b48b99cbc4686dda39a6dea6d6a0f60c99c8f/Sam-Nhlengethwa.png" alt="Sam-Nhlengethwa">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/d623fb61e1b10d717d5d893979d8bd45127c73df73cab7fd05be2e5a94d7854a/David-Koloane.png" alt="David-Koloane">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/7282c5fde14ff7e64e0333c7979ec035e7f15c5cc43e7a627ad1da12e9ba2f9e/Tony-Nkotsi.png" alt="Tony-Nkotsi">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/0de93add165d25f470e1ba13aa25104421dd9defc3315c4fe5c6c3d936f2e0e9/Anthusa-Sotiriades.png" alt="Anthusa-Sotiriades">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/20f42d0ee29aa6cfcebc9556d78b4a6c260e74f6d0a4ed7671ce2cde6aef1d8f/Arthur-Molapo.png" alt="Arthur-Molapo">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/6482110e93957951859f3c7371a8f7a281a97471b73239f9036cca207de97a07/Bongi-Dlomo.png" alt="Bongi-Dlomo">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/486c7c6284e5943198c8d7ea50ea6e08fd1ccb7412b186e10b29027a0b50c89b/Cyril-Manganyi.png" alt="Cyril-Manganyi">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/1bd6ce243f0b5d0eedb727b9be700fc9fd5e0523f39e9087aba330a47928f038/Sifiso-Nkane.png" alt="Sifiso-Nkane">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/f9763d80005f82841c0e5bf65e18f53b81aeb242d2d5cb8e80935fa652e22cdb/Sophie-Ainslie.png" alt="Sophie-Ainslie">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/f3f5a6f86f2bfa2c7f1511026f93a5a939483964549ad25eb2746d5d099a0ce0/Ann-Varney.png" alt="Ann-Varney">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/d8732bbb07b51e9e62a9d12c3d9bef85540914546987c5cf9a40099c7c303235/Mpolokeng-Ramphomane.png" alt="Mpolokeng-Ramphomane">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/9ea53376b90217a47064fac966fca4db255bb45c384de33f472d59b9511f984c/Dumisane-Mabaso.png" alt="Dumisane-Mabaso">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/e7313ae22049884e63a25851db2fd1d2eab102b8cc7576f8600b2a65fe63ff76/Sarah-Tabane.png" alt="Sarah-Tabane">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/3828708a77d1a7b15494870264e5f2c0d24154c8828e6047b34df1d6cbcd3087/Billy-Mandindi.png" alt="Billy-Mandindi">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/649a90dd58930e29a9aae61c5ec21192d837020f1bcd68d5e8e087b3f3be4060/Hamilton-Budaza.png" alt="Hamilton-Budaza">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/360ed9975207e51883a2c1ef9a73168a66c0c72af9b32a583cac6c6b83d87bd1/Pat-Skosana.png" alt="Pat Skosana">
-            </div>
-            <div class="row">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/319e4efc5c77ce7e578abcb4062b348ab95a7783d1932ef005f2c1e667f6c4ca/Thami-Jami.png" alt="Thami-Jami">
-                <img class="mobile-images" src="https://freight.cargo.site/t/original/i/1a138dc0cc91d766c876ac31f03e96eabea8943c4419d736a17ba2d7c8dbf222/Kay-Hassan.png" alt="Kay-Hassan">
-            </div>
-
         </div>
     </div>
-</div>
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-        magnify("myimage", 2);
-        addClickHandlers();
-    });
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            magnify("myimage", 2);
+            addClickHandlers();
+        });
+        
+        if (typeof magnify !== 'function') {
+            
+            
+            function magnify(imgID, zoom) {
+                var img, glass, w, h, tooltip;
     
-    if (typeof magnify !== 'function') {
-        
-        
-        function magnify(imgID, zoom) {
-            var img, glass, w, h, tooltip;
-
-            img = document.getElementById(imgID);
-            imgmap = document.getElementById('image-map');
-            imgmap.addEventListener("mousemove", moveMagnifier);
-            imgmap.addEventListener("touchmove", moveMagnifier);
-
-            glass = document.createElement("DIV");
-            tooltip = document.createElement("DIV");
-
-            img.parentElement.insertBefore(glass, img);
-            img.parentElement.insertBefore(tooltip, img);
-
-            glass.className = "img-magnifier-glass";
-            tooltip.className = "area-tooltip";
-
-            w = glass.offsetWidth / 2;
-            h = glass.offsetHeight / 2;
-
-            glass.style.backgroundImage = "url('" + img.src + "')";
-            glass.style.backgroundRepeat = "no-repeat";
-            glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-
-            img.addEventListener("mousemove", moveMagnifier);
-            img.addEventListener("touchmove", moveMagnifier);
-
-            function moveMagnifier(e) {
-                e.preventDefault();
-                var pos = getCursorPos(e),
-                    x = pos.x,
-                    y = pos.y;
-
-                if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
-                if (x < w / zoom) { x = w / zoom; }
-                if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
-                if (y < h / zoom) { y = h / zoom; }
-
-                /* Check if the cursor is over an area and update the magnifier's border color */
-                const isOverArea = e.target.tagName === 'AREA' || e.target.closest('area');
-                glass.style.borderColor = isOverArea ? 'gold' : 'black';
-
-                glass.style.left = (x - w) + "px";
-                glass.style.top = (y - h) + "px";
-                glass.style.backgroundPosition = "-" + ((x * zoom) - w) + "px -" + ((y * zoom) - h) + "px";
-
-                // Show the tooltip at the cursor position:
-                tooltip.style.display = 'block';
-                tooltip.innerHTML = getAreaAlt(x, y);
-                tooltip.style.top = e.pageY + 10 + 'px';
-                tooltip.style.left = e.pageX + 10 + 'px';
-            }
-
-            function getAreaAlt(x, y) {
-                var areas = document.querySelectorAll('map[name="workmap"] area');
-                for (var i = 0; i < areas.length; i++) {
-                    var coords = areas[i].coords.split(",");
-                    if (x >= coords[0] && x <= coords[2] && y >= coords[1] && y <= coords[3]) {
-                        return areas[i].alt;
+                img = document.getElementById(imgID);
+                imgmap = document.getElementById('image-map');
+                imgmap.addEventListener("mousemove", moveMagnifier);
+                imgmap.addEventListener("touchmove", moveMagnifier);
+    
+                glass = document.createElement("DIV");
+                tooltip = document.createElement("DIV");
+    
+                img.parentElement.insertBefore(glass, img);
+                img.parentElement.insertBefore(tooltip, img);
+    
+                glass.className = "img-magnifier-glass";
+                tooltip.className = "area-tooltip";
+    
+                w = glass.offsetWidth / 2;
+                h = glass.offsetHeight / 2;
+    
+                glass.style.backgroundImage = "url('" + img.src + "')";
+                glass.style.backgroundRepeat = "no-repeat";
+                glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+    
+                img.addEventListener("mousemove", moveMagnifier);
+                img.addEventListener("touchmove", moveMagnifier);
+    
+                function moveMagnifier(e) {
+                    e.preventDefault();
+                    var pos = getCursorPos(e),
+                        x = pos.x,
+                        y = pos.y;
+    
+                    if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
+                    if (x < w / zoom) { x = w / zoom; }
+                    if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
+                    if (y < h / zoom) { y = h / zoom; }
+    
+                    /* Check if the cursor is over an area and update the magnifier's border color */
+                    const isOverArea = e.target.tagName === 'AREA' || e.target.closest('area');
+                    glass.style.borderColor = isOverArea ? 'gold' : 'black';
+    
+                    glass.style.left = (x - w) + "px";
+                    glass.style.top = (y - h) + "px";
+                    glass.style.backgroundPosition = "-" + ((x * zoom) - w) + "px -" + ((y * zoom) - h) + "px";
+    
+                    // Show the tooltip at the cursor position:
+                    tooltip.style.display = 'block';
+                    tooltip.innerHTML = getAreaAlt(x, y);
+                    tooltip.style.top = e.pageY + 10 + 'px';
+                    tooltip.style.left = e.pageX + 10 + 'px';
+                }
+    
+                function getAreaAlt(x, y) {
+                    var areas = document.querySelectorAll('map[name="workmap"] area');
+                    for (var i = 0; i < areas.length; i++) {
+                        var coords = areas[i].coords.split(",");
+                        if (x >= coords[0] && x <= coords[2] && y >= coords[1] && y <= coords[3]) {
+                            return areas[i].alt;
+                        }
                     }
+                    return '';
                 }
-                return '';
-            }
-
-            function getCursorPos(e) {
-                var a, x = 0, y = 0;
-                e = e || window.event;
-                a = img.getBoundingClientRect();
-                x = e.pageX - a.left;
-                y = e.pageY - a.top;
-                x = x - window.pageXOffset;
-                y = y - window.pageYOffset;
-                return { x: x, y: y };
-            }
-        }
-    }
     
-    function addClickHandlers() {
-        var images = document.getElementsByTagName("img");
-
-        for (var i = 0; i < images.length; i++) {
-            images[i].addEventListener("click", function () {
-                var altText = this.alt;
-                if (altText) {
-                    window.location.href = "/" + altText;
+                function getCursorPos(e) {
+                    var a, x = 0, y = 0;
+                    e = e || window.event;
+                    a = img.getBoundingClientRect();
+                    x = e.pageX - a.left;
+                    y = e.pageY - a.top;
+                    x = x - window.pageXOffset;
+                    y = y - window.pageYOffset;
+                    return { x: x, y: y };
                 }
-            });
+            }
         }
-    }
-
-</script>
+        
+        function addClickHandlers() {
+            var images = document.getElementsByTagName("img");
+    
+            for (var i = 0; i < images.length; i++) {
+                images[i].addEventListener("click", function () {
+                    var altText = this.alt;
+                    if (altText) {
+                        window.location.href = "/" + altText;
+                    }
+                });
+            }
+        }
+    
+    </script>
+</body>
+</html>
