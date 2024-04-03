@@ -1,0 +1,638 @@
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myImg{
+            height: 8vh;
+        }
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 200vw;
+            height: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .inner-containers{
+            display: flex;
+            flex-direction: row;
+            height: 45vh;
+        }
+        .main-content-container{
+            width: 12.5%;
+            margin-left: 2vw;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5em;
+            flex-direction: column;
+        }
+    
+        .section-container{
+            padding: 0.5em;
+        }
+    
+        .section-container p {
+            font-size: 1vw;
+            word-wrap: break-word;
+            max-width: 100%;
+            box-sizing: border-box;
+            color: black;
+        }
+    
+        .images-container {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            border-radius: 0.5em;
+            flex-direction: column;
+        }
+    
+        .row{
+            display: flex;
+            flex-direction: row;
+        }
+    
+        .row img{
+            width: 22.5%;
+            margin: 0.2em;
+            border-radius: 0.5em;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .row img:hover{
+            opacity: 1;
+        }
+    
+        .dates-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 4vh;
+        }
+    
+        .date{
+            background-color: black;
+            height: 0.5vh;
+            width: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            white-space:nowrap;
+            
+        }
+
+        .date p{
+            color: black;
+            font-weight: bold;
+            padding: 0.3em;
+            text-align: center;
+            width: auto;
+            background-color: white;
+            border: 0.1em solid black;
+            border-radius: 1em;
+            font-size: 2vw;
+        }
+    
+        @media only screen and (max-width: 1200px) {
+            .section-container p {
+                font-size: 3vw;
+            }
+
+            .main-container {
+                margin-top: 0;
+                width: 600vw;
+                height: 90vh;
+            }
+            .date p{
+                font-size: 4vw;
+            }
+
+        }
+        /* Modelling  */
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            height: auto;
+            max-width: 700px;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            left: 36px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Styles for the slideshow navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        @media only screen and (max-width: 700px){
+            .modal{
+                width: 100vw;
+                right: 0;
+                position: absolute;
+            }
+            .modal-content {
+                width: 80vw;
+            }
+        }
+    </style>
+
+
+    <div class="main-container">
+        <div class="top-container inner-containers">
+            <div id="1991" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/80eed2708551fd38c09b94f55b918b6daf155dccb1dd9636a1eae6ee91cf5e0f/circa-1991_Mark-Attwood-Artists_-Press_Mark--Paul-Emmanuel---Tim-Fold.jpg" alt="1991 Mark Attwood Artists Press Mark Paul Emmanuel Tim Fold">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/57561b71ef3d0e49c02ba2e2deff486c08c70c9407c8b6c169b0b842367a2061/Dogs-Howling-at-the-Moon--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Dogs Howling at the Moon Pencil Charcoal on Paper 1992">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/e242b127581c87195203fc57bfda5ce285c5700e95f2c0f443d874e7d3aa5255/Township-Rooster--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Township Rooster Pencil Charcoal on Paper 1992">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/34691b6f9c201d9967e7276707d0ad6641d6b02f126043412cddee640a38df1e/Scavengers-II--Charcoal---Acrylic-on-Paper-1993.jpeg" alt="Scavengers II Charcoal Acrylic-on Paper 1993">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c9e1b790ca60e02b4e5c0ca6827c33fa4a70861856cc2a1a6c7681351aeb86ff/11.jpg" alt="11">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/24c190e1d09e2d498bc3b4023f34e692033dd70b7d21aa3aed900e235e2de104/12.jpg" alt="12">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/27e57c33041f08667e3d6e0f0cf5bb523ab903c43e0f2712256b67cf17adcdd6/121.jpg" alt="121">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/227b312abf1f9c3299cfd677c9eaf3e07d72ebf3ca532fe8f8e9b3bf99e52d10/14.jpg" alt="14">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/3175d129badb0fc456982d43a20c8b1c027a5073174acc9a98266fc5c22d9e58/16.jpg" alt="16">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/7e95c704d4f6a020053f53cff15bf5d8f7bee1faacbd98a8c9f7dfde5c7afbf7/17.jpg" alt="17">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c437b1a4d8c4333a95e62f2302be4507fe5eaf46313efe418cf73b65a62808c2/18.jpg" alt="18">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/9d134d93604bb1e1e8945dd6b803bb37742caa37067738fd1dda0186bec16bea/2002.Billy-Mandindi.DSCN1111.JPG" alt="2002 Billy Mandindi DSCN1111">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/936ccc5e5b655b4f1e23f287c45aec837a3f4e6740ee6861044738f2b5fee31c/2002.Billy-Mandindi.DSCN1116.JPG" alt="2002 Billy Mandindi DSCN1116">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/2923786c9790fb24a718f3ed4921c54fbb3ee950a7adf416d14018ecbaff1704/2002.Billy-Mandindi.DSCN1118.JPG" alt="2002 Billy Mandindi DSCN1118">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        A referendum on ending apartheid was held in South Africa on 17 March 1992. The referendum was limited to white South African voters,
+                        who were asked whether or not they supported the negotiated reforms begun by State President F. W. de Klerk two years earlier, in which he proposed to end the apartheid system that had been implemented since 1948. 
+                        The result of the election was a large victory for the "yes" side, which ultimately resulted in apartheid being lifted. 
+                        Universal suffrage was introduced two years later.
+                    </p>
+                </div>
+            </div>
+            <div id="1993" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/80eed2708551fd38c09b94f55b918b6daf155dccb1dd9636a1eae6ee91cf5e0f/circa-1991_Mark-Attwood-Artists_-Press_Mark--Paul-Emmanuel---Tim-Fold.jpg" alt="1991 Mark Attwood Artists Press Mark Paul Emmanuel Tim Fold">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/57561b71ef3d0e49c02ba2e2deff486c08c70c9407c8b6c169b0b842367a2061/Dogs-Howling-at-the-Moon--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Dogs Howling at the Moon Pencil Charcoal on Paper 1992">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/e242b127581c87195203fc57bfda5ce285c5700e95f2c0f443d874e7d3aa5255/Township-Rooster--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Township Rooster Pencil Charcoal on Paper 1992">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/34691b6f9c201d9967e7276707d0ad6641d6b02f126043412cddee640a38df1e/Scavengers-II--Charcoal---Acrylic-on-Paper-1993.jpeg" alt="Scavengers II Charcoal Acrylic-on Paper 1993">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c9e1b790ca60e02b4e5c0ca6827c33fa4a70861856cc2a1a6c7681351aeb86ff/11.jpg" alt="11">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/24c190e1d09e2d498bc3b4023f34e692033dd70b7d21aa3aed900e235e2de104/12.jpg" alt="12">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/27e57c33041f08667e3d6e0f0cf5bb523ab903c43e0f2712256b67cf17adcdd6/121.jpg" alt="121">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/227b312abf1f9c3299cfd677c9eaf3e07d72ebf3ca532fe8f8e9b3bf99e52d10/14.jpg" alt="14">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/3175d129badb0fc456982d43a20c8b1c027a5073174acc9a98266fc5c22d9e58/16.jpg" alt="16">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/7e95c704d4f6a020053f53cff15bf5d8f7bee1faacbd98a8c9f7dfde5c7afbf7/17.jpg" alt="17">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c437b1a4d8c4333a95e62f2302be4507fe5eaf46313efe418cf73b65a62808c2/18.jpg" alt="18">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/9d134d93604bb1e1e8945dd6b803bb37742caa37067738fd1dda0186bec16bea/2002.Billy-Mandindi.DSCN1111.JPG" alt="2002 Billy Mandindi DSCN1111">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/936ccc5e5b655b4f1e23f287c45aec837a3f4e6740ee6861044738f2b5fee31c/2002.Billy-Mandindi.DSCN1116.JPG" alt="2002 Billy Mandindi DSCN1116">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/2923786c9790fb24a718f3ed4921c54fbb3ee950a7adf416d14018ecbaff1704/2002.Billy-Mandindi.DSCN1118.JPG" alt="2002 Billy Mandindi DSCN1118">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        In 1994, South Africa transitioned from the National Party, which upheld apartheid since 1948, to the African National Congress (ANC), previously outlawed for opposing apartheid. The ANC won the first multiracial election with universal suffrage, breaking the previous white-exclusive voting system. Violence and conflicts arose in Bantustans before the elections, with some leaders opposing participation, while citizens sought inclusion. Incidents included bombings targeting the ANC and National Party, along with politically-motivated murders involving leaders of the ANC and Inkatha Freedom Party (IFP).
+                    </p>
+                </div>
+            </div>
+            <div id="1995" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/80eed2708551fd38c09b94f55b918b6daf155dccb1dd9636a1eae6ee91cf5e0f/circa-1991_Mark-Attwood-Artists_-Press_Mark--Paul-Emmanuel---Tim-Fold.jpg" alt="1991 Mark Attwood Artists Press Mark Paul Emmanuel Tim Fold">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/57561b71ef3d0e49c02ba2e2deff486c08c70c9407c8b6c169b0b842367a2061/Dogs-Howling-at-the-Moon--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Dogs Howling at the Moon Pencil Charcoal on Paper 1992">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/e242b127581c87195203fc57bfda5ce285c5700e95f2c0f443d874e7d3aa5255/Township-Rooster--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Township Rooster Pencil Charcoal on Paper 1992">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/34691b6f9c201d9967e7276707d0ad6641d6b02f126043412cddee640a38df1e/Scavengers-II--Charcoal---Acrylic-on-Paper-1993.jpeg" alt="Scavengers II Charcoal Acrylic-on Paper 1993">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c9e1b790ca60e02b4e5c0ca6827c33fa4a70861856cc2a1a6c7681351aeb86ff/11.jpg" alt="11">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/24c190e1d09e2d498bc3b4023f34e692033dd70b7d21aa3aed900e235e2de104/12.jpg" alt="12">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/27e57c33041f08667e3d6e0f0cf5bb523ab903c43e0f2712256b67cf17adcdd6/121.jpg" alt="121">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/227b312abf1f9c3299cfd677c9eaf3e07d72ebf3ca532fe8f8e9b3bf99e52d10/14.jpg" alt="14">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/3175d129badb0fc456982d43a20c8b1c027a5073174acc9a98266fc5c22d9e58/16.jpg" alt="16">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/7e95c704d4f6a020053f53cff15bf5d8f7bee1faacbd98a8c9f7dfde5c7afbf7/17.jpg" alt="17">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c437b1a4d8c4333a95e62f2302be4507fe5eaf46313efe418cf73b65a62808c2/18.jpg" alt="18">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/9d134d93604bb1e1e8945dd6b803bb37742caa37067738fd1dda0186bec16bea/2002.Billy-Mandindi.DSCN1111.JPG" alt="2002 Billy Mandindi DSCN1111">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/936ccc5e5b655b4f1e23f287c45aec837a3f4e6740ee6861044738f2b5fee31c/2002.Billy-Mandindi.DSCN1116.JPG" alt="2002 Billy Mandindi DSCN1116">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/2923786c9790fb24a718f3ed4921c54fbb3ee950a7adf416d14018ecbaff1704/2002.Billy-Mandindi.DSCN1118.JPG" alt="2002 Billy Mandindi DSCN1118">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        The adoption of the South African Constitution on 8 May 1996 was one of the turning points in the history of the struggle for democracy in this country. The Constitution is considered by many as one of the most advanced in the world, with a Bill of Rights second to none
+                    </p>
+                </div>
+            </div>
+            <div id="1998" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/80eed2708551fd38c09b94f55b918b6daf155dccb1dd9636a1eae6ee91cf5e0f/circa-1991_Mark-Attwood-Artists_-Press_Mark--Paul-Emmanuel---Tim-Fold.jpg" alt="1991 Mark Attwood Artists Press Mark Paul Emmanuel Tim Fold">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/57561b71ef3d0e49c02ba2e2deff486c08c70c9407c8b6c169b0b842367a2061/Dogs-Howling-at-the-Moon--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Dogs Howling at the Moon Pencil Charcoal on Paper 1992">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/e242b127581c87195203fc57bfda5ce285c5700e95f2c0f443d874e7d3aa5255/Township-Rooster--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Township Rooster Pencil Charcoal on Paper 1992">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/34691b6f9c201d9967e7276707d0ad6641d6b02f126043412cddee640a38df1e/Scavengers-II--Charcoal---Acrylic-on-Paper-1993.jpeg" alt="Scavengers II Charcoal Acrylic-on Paper 1993">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c9e1b790ca60e02b4e5c0ca6827c33fa4a70861856cc2a1a6c7681351aeb86ff/11.jpg" alt="11">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/24c190e1d09e2d498bc3b4023f34e692033dd70b7d21aa3aed900e235e2de104/12.jpg" alt="12">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/27e57c33041f08667e3d6e0f0cf5bb523ab903c43e0f2712256b67cf17adcdd6/121.jpg" alt="121">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/227b312abf1f9c3299cfd677c9eaf3e07d72ebf3ca532fe8f8e9b3bf99e52d10/14.jpg" alt="14">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/3175d129badb0fc456982d43a20c8b1c027a5073174acc9a98266fc5c22d9e58/16.jpg" alt="16">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/7e95c704d4f6a020053f53cff15bf5d8f7bee1faacbd98a8c9f7dfde5c7afbf7/17.jpg" alt="17">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/c437b1a4d8c4333a95e62f2302be4507fe5eaf46313efe418cf73b65a62808c2/18.jpg" alt="18">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/9d134d93604bb1e1e8945dd6b803bb37742caa37067738fd1dda0186bec16bea/2002.Billy-Mandindi.DSCN1111.JPG" alt="2002 Billy Mandindi DSCN1111">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/936ccc5e5b655b4f1e23f287c45aec837a3f4e6740ee6861044738f2b5fee31c/2002.Billy-Mandindi.DSCN1116.JPG" alt="2002 Billy Mandindi DSCN1116">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/2923786c9790fb24a718f3ed4921c54fbb3ee950a7adf416d14018ecbaff1704/2002.Billy-Mandindi.DSCN1118.JPG" alt="2002 Billy Mandindi DSCN1118">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        Nelson Mandela receives the Truth and Reconciliation report.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="dates-container">
+            <div class="date">
+                <p>1991</p>
+            </div>
+            <div class="date">
+                <p>1992</p>
+            </div>
+            <div class="date">
+                <p>1993</p>
+            </div>
+            <div class="date">
+                <p>1994</p>
+            </div>
+            <div class="date">
+                <p>1995</p>
+            </div>
+            <div class="date">
+                <p>1996</p>
+            </div>
+            <div class="date">
+                <p>1997</p>
+            </div>
+            <div class="date">
+                <p>1998</p>
+            </div>
+        </div>
+        <div class="bottom-container inner-containers">
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        At the signing of a national peace accord State President F.W. de Klerk promises to end all apartheid legislation and to create a new multi-racial constitution.Chief Mhlabunzima Maphumulo is shot dead by an alleged hit-squad outside his home in Pietermaritzburg.
+                    </p>
+                </div>
+            </div>
+            <div id="1992" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        In 1993, a definitive date was established to conclude white minority rule in South Africa. After the suspension of multiparty negotiations in June 1992, discussions were resumed. April 27, 1994, was determined as the pivotal date for conducting the inaugural multiracial general election in South Africa, marking a significant milestone in the nation's history.
+                    </p>
+                </div>
+            </div>
+            <div id="1994" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        In 1995, the interim constitution agreed to during the negotiations to end apartheid was replaced by a new constitution. The government also established the Truth and Reconciliation Commission (TRC) to expose the crimes of the apartheid era.
+                    </p>
+                </div>
+            </div>
+            <div id="1996" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="section-container">
+                    <p>
+                        President Nelson Mandela is granted a divorce from Winnie Mandela in the Rand Supreme Court.Approximately 6,000 Inkatha Freedom Party supporters armed with fighting sticks, spears, clubs and battle axes rally in the Tugela Ferry area of KwaZulu-Natal in defiance of a national ban on traditional weapons.
+                    </p>
+                </div>
+            </div>
+            <div id="1998" class="main-content-container">
+                <div class="section-container image-container">
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                    <div class="row">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii">
+                        <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <span class="prev" onclick="plusSlides(-1)">❮</span>
+        <span class="next" onclick="plusSlides(1)">❯</span>
+        <span class="close">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(parentDivId, rowIndex, imageIndex) {
+            // Display the modal
+            document.getElementById('myModal').style.display = 'block';
+    
+            // Set the current slide info
+            currentSlideInfo = { parentDivId, rowIndex, imageIndex };
+    
+            // Show the selected image
+            showSlides();
+        }
+    
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    
+        function plusSlides(n) {
+            const { parentDivId, rowIndex, imageIndex } = currentSlideInfo;
+            const modalContent = document.getElementById(parentDivId);
+    
+            if (!modalContent) return;
+    
+            // Get all images in the current modal content
+            const rows = modalContent.querySelectorAll('.row');
+            const images = rows[rowIndex].querySelectorAll('.myImg');
+    
+            // Calculate the total number of images
+            const totalImages = rows.length * images.length;
+    
+            // Update imageIndex considering the total number of images
+            currentSlideInfo.imageIndex = (imageIndex + n + totalImages) % totalImages;
+    
+            // Show the updated image
+            showSlides();
+        }
+    
+        function showSlides() {
+            const { parentDivId, rowIndex, imageIndex } = currentSlideInfo;
+            const modalContent = document.getElementById(parentDivId);
+    
+            if (!modalContent) return;
+    
+            // Get all images in the current modal content
+            const rows = modalContent.querySelectorAll('.row');
+            const images = rows[rowIndex].querySelectorAll('.myImg');
+    
+            // Calculate the row and column indices based on the updated imageIndex
+            const updatedRowIndex = Math.floor(currentSlideInfo.imageIndex / images.length) % rows.length;
+            const updatedImageIndex = currentSlideInfo.imageIndex % images.length;
+    
+            // Display the image in the modal
+            const selectedImage = rows[updatedRowIndex].querySelectorAll('.myImg')[updatedImageIndex];
+            document.getElementById('img01').src = selectedImage.src;
+            document.getElementById('caption').innerHTML = selectedImage.alt;
+        }
+    
+        // Set up event listeners after the page loads
+        window.onload = function () {
+            // Attach click event to each image
+            const images = document.querySelectorAll('.myImg');
+            images.forEach((image, index) => {
+                image.onclick = function () {
+                    // Call openModal with the parent id, row index, and index of the clicked image
+                    const parentDivId = this.closest('.main-content-container').id;
+                    const rowIndex = Array.from(this.closest('.row').parentElement.children).indexOf(this.closest('.row'));
+                    console.log(parentDivId, rowIndex, index)
+                    openModal(parentDivId, rowIndex, index);
+                };
+            });
+    
+            // Attach click event to close button
+            const span = document.getElementsByClassName('close')[0];
+            span.onclick = function () {
+                // Call closeModal when close button is clicked
+                closeModal();
+            };
+    
+            // Attach click events to next and previous buttons
+            const nextBtn = document.getElementsByClassName('next')[0];
+            const prevBtn = document.getElementsByClassName('prev')[0];
+    
+            nextBtn.onclick = function () {
+                // Call plusSlides with 1 to move to the next image
+                plusSlides(1);
+            };
+    
+            prevBtn.onclick = function () {
+                // Call plusSlides with -1 to move to the previous image
+                plusSlides(-1);
+            };
+        };
+    </script>
+    

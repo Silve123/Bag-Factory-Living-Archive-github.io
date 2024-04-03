@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (max-width: 1024px)  {
+            .artist-info-picture-container {
+                flex-direction: column-reverse;
+            }
+            .info-container {
+                width: 100%;
+                padding: 1em 3em 3em 3em ;
+            }
+              .info-container p{
+                font-size: 3em;
+            }
+              .info-container h2{
+                font-size: 6em;
+            }
+            .artist-image-container{
+                width: 100%;
+                padding: 0 5em;
+                margin: 2em 0;
+            }
+            .artist-image-container img {
+                width: 80%;
+                padding: 0;
+            }
+            .image-info-container{
+                width: 70%;
+            }
+              .cv-button{
+                font-size: 2em !important;
+            }
+    
+        }
+          @media only screen and (min-width: 1025px)  {
+            .artist-image-container{
+                width: 50%;
+                padding-bottom: 5em;
+            }
+            .artist-image-container img {
+                width: 70%;
+                padding: 1em;
+            }
+            .info-container {
+                width: 50%;
+                padding: 3%;
+                height: 70vh;
+                color: white;
+            }
+            .info-container p{
+                font-size: 1em;
+            }
+        }
+    
+        .container-div{
+            width: 100%;
+            position: relative;
+        }
+    
+        .container-div:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            background-image: url('https://files.cargocollective.com/c2174104/hero.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -2;
+        }
+        .artist-header-container {
+            text-align: center;
+            height: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        .artist-info-picture-container {
+            display: flex;
+            height: auto;
+            padding: 2em 0 4em 0;
+              background-color: #000000c0;
+        }
+    
+        .artist-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .artist-image-container img {
+            height: auto;
+            border-radius: 50%;
+        }
+    
+        .info-container p, h2{
+            text-align: left;
+            color: white;
+            text-align: justify;
+        }
+    
+        .cv-button{
+            font-size:0.875em;
+            display:block;
+            left:-60px;
+            margin-top:35px;
+            margin-bottom: 2em;
+            color: black;
+            background-color: white;
+            border-radius: 0.5em;
+            padding: 1em 2em;
+            text-align: center;
+            max-width: fit-content;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .row{
+            display: flex;
+            flex-direction: row;
+            padding: 1em 0;
+            justify-content: space-around;
+            background-color: #000000c0;
+        }
+    
+        .myImg {
+            border-radius: 0.5em;
+            cursor: pointer;
+            transition: 0.3s;
+            width: auto;
+            height: 20vh;
+            opacity: 0.05;
+            border: 0.05em solid rgba(255, 255, 255, 0.514);
+        }
+        .myImg-div{
+            margin: 0 0.1em;
+            background-color: black;
+            width: max-content;
+            height: 20vh;
+            border-radius: 0.5em;
+        }
+    
+        .myImg:hover {
+            opacity: 1;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.925);
+        }
+    
+        .modal-content {
+            margin: auto;
+            margin-top: -4em;
+            display: block;
+            width: auto;
+            max-height: 75vh;
+        }
+    
+        #caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            font-style: italic;
+            font-variant: small-caps;
+        }
+        .image-info-container {
+            margin: auto;
+            padding: 0.5em 0;
+            display: block;
+            max-width: 55%;
+            text-align: center;
+            color: white;
+            background-color:rgb(43, 43, 43);
+        }
+        .image-title{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 2em;
+        }
+    
+        .single-line-description{
+            text-align: center;
+            font-style: italic;
+        }
+    
+        .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+    
+        .image-info-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .image-info-content{
+            color: grey;
+        }
+    
+        @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+        }
+    
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+    
+        .close {
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+    
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    
+        .next {
+            right: 0;
+        }
+    
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-div">
+        <div class="background-container"></div>
+        <div class="artist-header-container">
+            <div class="artist-info-picture-container" grid-row="" grid-pad="0" grid-gutter="0">
+                <div class="info-container" grid-col="x11" grid-pad="0">
+                    <h2><span style="color: #fff;">Kagiso Pat Mautloa</span></h2>
+                    <p>Kagiso Patrick "Pat" Mautloa is a South African multimedia visual artist born on September 24, 1952, in Ventersdorp, North West. He is based in Johannesburg. Mautloa's artistic journey began in his early years, moving to Soweto at the age of two. He studied visual arts at various centers, receiving a bursary after his involvement in the Soweto Uprisings. In 1978, he studied at ELC Rorke's Drift Art and Craft Centre under Dan Rakgoathe.
+                        <br><br>After his education, Mautloa worked as a graphic designer and a professor. In 1981, he briefly worked as a banker but chose to pursue his passion for art. In 1985, during the State of Emergency in South Africa, he founded the Thupelo Workshops in Cape Town.
+                        <br><br>Mautloa's studio is at The Bag Factory in Johannesburg. He works figuratively and abstractly, incorporating traditional and unconventional materials, including found objects. He has participated in various residencies and received awards, such as the Vita Art award in 1991. His work is featured in public collections, including the Iziko South African National Gallery and Johannesburg Art Gallery.</p>
+                        <a class="cv-button" href="https://drive.google.com/file/d/1TM37vzuYTuWGEss7scJPJwF6_6SyZiiW/view?usp=sharing" target="_blank" title="Read CV">CV</a>
+                </div>
+                <div class="artist-image-container" grid-col="x11" grid-pad="0">
+                    <img src="https://freight.cargo.site/t/original/i/f5dd79425a47dff9db6c0a09ef9034b57c3b694d27a04299b5a8409dea4710a6/Pat-Mautloa.png">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" speed="10">
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/20465370bf845966952595bcc7b5b9ec9fd0cf143aeedafabf26d60c23b5e218/2012-Pat-Mautloa-Artworks--19.jpg" alt="Untitled" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/4388c6f95d54756f6c9803ee149bcc429319aacbed6469fa72ac64d4abe9f7f6/2012-Pat-Mautloa-Artworks--21.jpg" alt="Untitled" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/a0b092a7ef30a4516de7c23738b5014ff7d7308b39817a52b966da00458811ad/2012-Pat-Mautloa-Artworks--26.jpg" alt="Untitled" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/e701f05e37173e1bd5a0caa1b0fce17988bed0a05a1fc2f5e1d27293d3f06f77/1997-Pat-Mautloa-DSCN0503.JPG" alt="Untitled" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/27ede41d437ac04095fbfe4d44b6fceccb580c759ffdaf76e919e1e4ef5f4acf/2001-Pat-Mautloa-DSCN0500.JPG" alt="Untitled" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/e8ff5489726f118c68858d13c0bae7315690583daeadd2ab6a3674f651dd52d9/2002-Pat-Mautloa-DSCN0499.JPG" alt="Untitled" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/f858267435f19407a3ed330edb864003bb1d4d6fb675b5397026786040a0fbbf/2011-Pat-Maultoa_Working-Together_Etching.jpg" alt="Working Together" data-medium="Etching" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/2db34b3a4bd90d99cead07c33e14192370bf5b10cf3ee7212a00a8260eee4bf2/2012-Pat-Mautloa-Artworks-.jpg" alt="Untitled" data-medium="" data-size="">
+                </div>
+            </div>
+            <div id="myModal" class="modal" style="display: none;">
+                <span class="prev">❮</span>
+                <span class="next">❯</span>
+                <span class="close">×</span>
+                <img class="modal-content" id="img01" src="image1.jpg">
+                <div class="image-info-container">
+                    <div id="caption"></div>
+                    <p class="single-line-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentSlideInfo = 0;
+    
+        function openModal(index) {
+            currentSlideInfo = index;
+            showSlides();
+        }
+    
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    
+        function plusSlides(n) {
+            currentSlideInfo += n;
+            showSlides();
+        }
+    
+        function showSlides() {
+            const images = document.querySelectorAll('.myImg');
+            currentSlideInfo = (currentSlideInfo + images.length) % images.length;
+    
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+            document.getElementById('img01').src = images[currentSlideInfo].src;
+            document.getElementById('caption').innerHTML = images[currentSlideInfo].alt;
+    
+            const singleLineDescription = document.querySelector('.single-line-description');
+            singleLineDescription.innerHTML = `${images[currentSlideInfo].dataset.medium} ${images[currentSlideInfo].dataset.size}`;
+        }
+    
+        window.onload = function () {
+            const images = document.querySelectorAll('.myImg');
+            images.forEach((image, index) => {
+                image.onclick = function () {
+                    openModal(index);
+                };
+            });
+    
+            const span = document.getElementsByClassName('close')[0];
+            span.onclick = function () {
+                closeModal();
+            };
+    
+            const nextBtn = document.getElementsByClassName('next')[0];
+            const prevBtn = document.getElementsByClassName('prev')[0];
+    
+            nextBtn.onclick = function () {
+                plusSlides(1);
+            };
+    
+            prevBtn.onclick = function () {
+                plusSlides(-1);
+            };
+        };
+    </script>
+</body>
+</html>

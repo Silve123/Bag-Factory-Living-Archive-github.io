@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (max-width: 1024px)  {
+            .artist-info-picture-container {
+                flex-direction: column-reverse;
+            }
+            .info-container {
+                width: 100%;
+                padding: 1em 3em 3em 3em ;
+            }
+              .info-container p{
+                font-size: 3em;
+            }
+              .info-container h2{
+                font-size: 6em;
+            }
+            .artist-image-container{
+                width: 100%;
+                padding: 0 5em;
+                margin: 2em 0;
+            }
+            .artist-image-container img {
+                width: 80%;
+                padding: 0;
+            }
+            .image-info-container{
+                width: 70%;
+            }
+              .cv-button{
+                font-size: 2em !important;
+            }
+    
+        }
+          @media only screen and (min-width: 1025px)  {
+            .artist-image-container{
+                width: 50%;
+                padding-bottom: 5em;
+            }
+            .artist-image-container img {
+                width: 70%;
+                padding: 1em;
+            }
+            .info-container {
+                width: 50%;
+                padding: 3%;
+                height: 70vh;
+                color: white;
+            }
+            .info-container p{
+                font-size: 1em;
+            }
+        }
+    
+        .container-div{
+            width: 100%;
+            position: relative;
+        }
+    
+        .container-div:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            background-image: url('https://files.cargocollective.com/c2174104/hero.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -2;
+        }
+        .artist-header-container {
+            text-align: center;
+            height: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        .artist-info-picture-container {
+            display: flex;
+            height: auto;
+            padding: 2em 0 4em 0;
+              background-color: #000000c0;
+        }
+    
+        .artist-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .artist-image-container img {
+            height: auto;
+            border-radius: 50%;
+        }
+    
+        .info-container p, h2{
+            text-align: left;
+            color: white;
+            text-align: justify;
+        }
+    
+        .cv-button{
+            font-size:0.875em;
+            display:block;
+            left:-60px;
+            margin-top:35px;
+            margin-bottom: 2em;
+            color: black;
+            background-color: white;
+            border-radius: 0.5em;
+            padding: 1em 2em;
+            text-align: center;
+            max-width: fit-content;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .row{
+            display: flex;
+            flex-direction: row;
+            padding: 1em 0;
+            justify-content: space-around;
+            background-color: #000000c0;
+        }
+    
+        .myImg {
+            border-radius: 0.5em;
+            cursor: pointer;
+            transition: 0.3s;
+            width: auto;
+            height: 18vh;
+            opacity: 0.05;
+            border: 0.05em solid rgba(255, 255, 255, 0.514);
+        }
+        .myImg-div{
+            margin: 0 0.1em;
+            background-color: black;
+            width: max-content;
+            height: 18vh;
+            border-radius: 0.5em;
+        }
+    
+        .myImg:hover {
+            opacity: 1;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.925);
+        }
+    
+        .modal-content {
+            margin: auto;
+            margin-top: -4em;
+            display: block;
+            width: auto;
+            max-height: 75vh;
+        }
+    
+        #caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            font-style: italic;
+            font-variant: small-caps;
+        }
+        .image-info-container {
+            margin: auto;
+            padding: 0.5em 0;
+            display: block;
+            max-width: 55%;
+            text-align: center;
+            color: white;
+            background-color:rgb(43, 43, 43);
+        }
+        .image-title{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 2em;
+        }
+    
+        .single-line-description{
+            text-align: center;
+            font-style: italic;
+        }
+    
+        .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+    
+        .image-info-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .image-info-content{
+            color: grey;
+        }
+    
+        @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+        }
+    
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+    
+        .close {
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+    
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    
+        .next {
+            right: 0;
+        }
+    
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-div">
+        <div class="background-container"></div>
+        <div class="artist-header-container">
+            <div class="artist-info-picture-container" grid-row="" grid-pad="0" grid-gutter="0">
+                <div class="info-container" grid-col="x11" grid-pad="0">
+                    <h2><span style="color: #fff;">David Koloane</span></h2>
+                    <p> I was born in Alexandra township which is situated 15km north of Johannesburg.
+                        I was educated at St. Michaels primary school and Orlando high school in Soweto.
+                        I studied under the Bill Ainslie Studios in Johannesburg from 1974-1977. I was influenced by a friend; Loius Maqhubela who is also one of the outstanding artists to come out of South Africa.
+                        Louis Maqhubela is presently living in London with his family.
+                        I am presently focusing on the city theme which I find both inspiring and fascinating because of the changes which have taken place in the country. 
+                        I am trying to change the way people used to perceive the city as belonging only to white people. I started painting professionally in 1974.
+                        My artwork addresses some of the problems created by the apartheid system of government, such as slum settlements, violence and the standard of living experienced by most communities.
+                        Dogs have become an important symbol in my work because there are many stray dogs in the township which are not properly cared for or fed. So if somebody calls you a dog, it is an insult. I use dogs as a symbol of how black people were insulted by the previous government.
+                        My subject matter is mostly about the human condition. Abstract painting was important to me in order to experiment with form and colour.
+                        Foreground and background are both important in representational or figurative work.
+                        Abstract painting, on the contrary, does not depend on foreground and background because the surface or picture frame of the painting is flat, with no depth or perspective.</p>
+                        <a class="cv-button" href="" target="_blank" title="Read CV">CV</a>
+                </div>
+                <div class="artist-image-container" grid-col="x11" grid-pad="0">
+                    <img src="https://freight.cargo.site/t/original/i/d623fb61e1b10d717d5d893979d8bd45127c73df73cab7fd05be2e5a94d7854a/David-Koloane.png">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" speed="10">
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/61fea17b90a110b97a9dd8e37963ce5b48de17a376ed71784c9a76aa5b2c1831/Commuters-I--Mixed-Media-on-Paper-2008.jpeg" alt="Commuters I" data-medium="Mixed Media on Paper" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/c75cd8adfe08b031a880271c9b869c3b43d6637429a5f14ab937a8bbed5dccf5/Doves--Mixed-Media-on-Paper-2008.jpeg" alt="Doves" data-medium="Mixed Media on Paper" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/7eaf458d8e0cc0f1df654c4ab62b148f72257ad3543ca3644ae9ff529a190635/Johannesburg-Skyline.jpg" alt="Johannesburg Skyline" data-medium="Oil Pastel and oil stick on canvas" data-size="114 x 126 cm">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/26c6f93b7200a96756f85de86c141459c979a435c099359b3016ad230136d8bf/Mgodoy-iii--Mixed-Media-on-Paper-1999.jpeg" alt="Mgodoy iii" data-medium="Mixed Media on Paper" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/a595f78b1514211569c8c75e7393df03136758556b7683053162690e6d98a648/Township-Rooster--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Township Rooster" data-medium="Pencil Charcoal on Paper" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/653f480e94c5081d57480d51cb8a15310502104c47f35213c59e57235d74c666/Dogs-Howling-at-the-Moon--Pencil---Charcoal-on-Paper-1992.jpeg" alt="Dogs Howling at the Moon" data-medium="Pencil Charcoal on Paper" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/2ac5b253488c7f1b66eb4b6cc341f0d21aad1a94e44d5045b0b245589ea52c88/Untitled-the-moon-over-Hillbrow-Tower--Oil---Mixed-Media-on-Canvas-1995.jpg" alt="The moon over Hillbrow Tower" data-medium="Oil Mixed Media on Canvas" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/305d831e5876b5be6799395779543e6ea90b9e4ce219fab277555d7e439b9f67/Street-Dogs-1--Acrylic---Pastel-on-Paper-2005.jpeg" alt="Street Dogs 1" data-medium="Acrylic Pastel on Paper" data-size="">
+                </div>
+                
+                
+            </div>
+            <div id="myModal" class="modal" style="display: none;">
+                <span class="prev">❮</span>
+                <span class="next">❯</span>
+                <span class="close">×</span>
+                <img class="modal-content" id="img01" src="image1.jpg">
+                <div class="image-info-container">
+                    <div id="caption"></div>
+                    <p class="single-line-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentSlideInfo = 0;
+    
+        function openModal(index) {
+            currentSlideInfo = index;
+            showSlides();
+        }
+    
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    
+        function plusSlides(n) {
+            currentSlideInfo += n;
+            showSlides();
+        }
+    
+        function showSlides() {
+            const images = document.querySelectorAll('.myImg');
+            currentSlideInfo = (currentSlideInfo + images.length) % images.length;
+    
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+            document.getElementById('img01').src = images[currentSlideInfo].src;
+            document.getElementById('caption').innerHTML = images[currentSlideInfo].alt;
+    
+            const singleLineDescription = document.querySelector('.single-line-description');
+            singleLineDescription.innerHTML = `${images[currentSlideInfo].dataset.medium} ${images[currentSlideInfo].dataset.size}`;
+        }
+    
+        window.onload = function () {
+            const images = document.querySelectorAll('.myImg');
+            images.forEach((image, index) => {
+                image.onclick = function () {
+                    openModal(index);
+                };
+            });
+    
+            const span = document.getElementsByClassName('close')[0];
+            span.onclick = function () {
+                closeModal();
+            };
+    
+            const nextBtn = document.getElementsByClassName('next')[0];
+            const prevBtn = document.getElementsByClassName('prev')[0];
+    
+            nextBtn.onclick = function () {
+                plusSlides(1);
+            };
+    
+            prevBtn.onclick = function () {
+                plusSlides(-1);
+            };
+        };
+    </script>
+</body>
+</html>

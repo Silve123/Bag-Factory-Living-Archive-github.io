@@ -1,0 +1,406 @@
+<style>
+    @media only screen and (min-width: 1350px)  {
+        .hero-container {
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-container img {
+            width: 70%;
+            height: auto;
+        }
+
+        .area-tooltip {
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+        .area-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+        }
+        .area{
+            cursor: crosshair;
+        }
+        .studio-history{
+            width: 30%;
+            margin-top: -3em;
+            height: 100vh;
+            max-height: fit-content;
+            background-color: black;
+            padding: 0.5em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:flex-start;
+        }
+        .studio-history h1{
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            margin-top: 1.5em;
+        }
+        .studio-history-data{
+            border-radius: 1em;
+            background-color: white;
+            height: 50%;
+            max-height: fit-content;
+            width: 90%;
+            color: black;
+            padding-bottom: 1em;
+        }
+        .studio-history-data ul li{
+            list-style-type: none;
+            font-size: 1em;
+        }
+        .mobile-prompt{
+            display: none;
+        }
+        .desktop-prompt{
+            text-align: center;
+            width: 60%;
+            margin-top: 1em;
+            color: orange;
+            animation: blinker 2s linear infinite;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    }
+    @media only screen and (max-width: 1349px)  {
+        .desktop-prompt{
+            display: none;
+        }
+        .mobile-prompt{
+            font-size: 1.5em;
+            text-align: center;
+            margin: 1em 0;
+            color: orange;
+            animation: blinker 3s linear infinite;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+        .hero-container img {
+            width: 100%;
+            height: auto;
+        }
+        .area-tooltip {
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+        .area-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+        }
+        .area{
+            cursor: crosshair;
+        }
+        .studio-history{
+            width: 100%;
+            background-color: black;
+            height: auto;
+            min-height: 30vh;
+            max-height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .studio-history h1{
+            color: white;
+            text-align: center;
+            font-size: 4em;
+            margin-top: 1em;
+        }
+        .studio-history-data{
+            border-radius: 1em;
+            background-color: white;
+            width: 90%;
+            height: 70%;
+            min-height: 30%;
+            max-height: max-content;
+            color: black;
+            margin-bottom: 1em;
+            padding-top: 1em;
+            padding: 1em;
+        }
+        .studio-history-data ul li{
+            list-style-type: none;
+            font-size: 2em;
+        }
+        #tooltip{
+            display: none;
+        }
+    }
+</style>
+
+<div class="holding_container">
+    <div class="hero-div">
+        <div class="hero-image-magnifier">
+            <div class="hero-container">
+                <div class="studio-history">
+                    <h1>Studio History</h1>
+                    <div class="studio-history-data"></div>
+                    <div class="desktop-prompt"><p>Hover over a studio on the right to get the Studio history</p></div>
+                    <div class="mobile-prompt"><p>Click on a studio at the bottom to get the Studio history</p></div>
+                </div>
+                <img id="myimage" src="https://freight.cargo.site/t/original/i/62eb295e3a3b31b14c03784ceeb9adc53f81e463626274b2edde95ddabd670a9/Art-Studios-Project---Proposed-Art-Studios-for-BF-1991.jpg" usemap="#workmap"><br>
+                <map id="image-map" name="workmap">
+                    <area class="area" shape="rect" coords="120%, 180%, 170%, 250%" alt="Studio 1">
+                    <area class="area" shape="rect" coords="175%, 190%, 220%, 270%" alt="Studio 2">
+                    <area class="area" shape="rect" coords="220%, 210%, 265%, 290%" alt="Studio 3">
+                    <area class="area" shape="rect" coords="270%, 225%, 315%, 320%" alt="Studio 4">
+                    <area class="area" shape="rect" coords="320%, 245%, 365%, 340%" alt="Studio 5">
+                    <area class="area" shape="rect" coords="365%, 265%, 410%, 360%" alt="Studio 6">
+                    <area class="area" shape="rect" coords="410%, 285%, 445%, 370%" alt="Studio 7">
+                    <area class="area" shape="rect" coords="445%, 295%, 485%, 390%" alt="Studio 8">
+                    <area class="area" shape="rect" coords="485%, 300%, 500%, 345%" alt="Studio 8">
+                    <area class="area" shape="rect" coords="500%, 320%, 520%, 405%" alt="Studio 9">
+                    <area class="area" shape="rect" coords="480%, 360%, 500%, 405%" alt="Studio 9">
+                    <area class="area" shape="rect" coords="520%, 320%, 545%, 360%" alt="Studio 9">
+                    <area class="area" shape="rect" coords="545%, 340%, 585%, 380%" alt="Studio 10">
+                    <area class="area" shape="rect" coords="525%, 380%, 570%, 420%" alt="Studio 10">
+                    <area class="area" shape="rect" coords="580%, 360%, 630%, 445%" alt="Studio 11">
+                    <area class="area" shape="rect" coords="630%, 400%, 690%, 470%" alt="Studio 12">
+                    <area class="area" shape="rect" coords="640%, 290%, 685%, 370%" alt="Studio 13">
+                    <area class="area" shape="rect" coords="595%, 270%, 640%, 340%" alt="Studio 14">
+                    <area class="area" shape="rect" coords="630%, 175%, 685%, 250%" alt="Studio 15">
+                    <area class="area" shape="rect" coords="405%, 175%, 450%, 260%" alt="Studio 16">
+                    <area class="area" shape="rect" coords="350%, 175%, 405%, 240%" alt="Studio 17">
+                </map>
+                <div class="area-tooltip" id="tooltip"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        addAreaHandlers();
+    });
+    const studiosHistory = {
+        "Studio 1": [
+            "1992 : Deborah Bell",
+            "1994-2005 : Kay Hassan",
+            "2006-2009 : Dinkies Sithole",
+            "2010-2011 : Lerato Shadi",
+            "2012 : Pamela Sunstrum",
+            "2018 : Thonton Kabeya"
+        ],
+        "Studio 2": [
+            "1992 : Penny Siopis",
+            "1993 : Colin Richards",
+            "1994 : Marlene Kapitche Meyer",
+            "1996 : Moleleki Frank Ledimo",
+            "1997 : Sam Nhlengethwa",
+            "1998-2005 : Dominic Tshabangu",
+            "2008-2009 : Nontsikilelo Veleko",
+            "2005-2012 : Richard Penn"
+        ],
+        "Studio 3": [
+            "1991-2019 : David Koloane",
+            "2020 : Yolanda Mazwana"
+        ],
+        "Studio 4": [
+            "1991-2022 : Pat Mautloa & Bongi Dhlomo"
+        ],
+        "Studio 5": [
+            "1991-1994 : Sam Nhlengethwa",
+            "1995 : Anna Varney",
+            "1996-2007 : Stephen Maqashela",
+            "2008 : Happy Dhlame",
+            "2010-2012 : Happy Dhlame",
+            "2015-2017 : Ayanda Mabulu",
+            "2018-2020 : Phumulani Ntuli"
+        ],
+        "Studio 6": [
+            "1992 : Anna Varney",
+            "1995 : Hedwig Barry",
+            "1997-1998 : Basil Baqwa",
+            "2002 : Amos Letsoalo",
+            "2004-2007 : Andrew Tshabangu",
+            "2008-2009 : Sabelo Mlangeni",
+            "2010-2011 : Reg Pakari",
+            "2012 : Blessing Ngobeni",
+            "2015-2018 : Danny Myburgh",
+            "2019-2020 : Candice Kramer"
+        ],
+        "Studio 7": [
+            "1992 : Belinda Blignaut",
+            "1993-1995 : Nikki Blumenfeldt",
+            "1996-1998 : Sam Nhlengethwa",
+            "1999-2000 : Senzeni Marasela",
+            "2001 : Claudia Schreuders",
+            "2011 : Colbert Mashile",
+            "2012-2013 : Musa Nxumalo",
+            "2017 : Levester Williams",
+            "2018-2019 : Asuka Nirasawa"
+        ],
+        "Studio 8": [
+            "1992 : Sophia Ainslie",
+            "1995 : Alan Alborough",
+            "1996-2006 : Ben Arnold",
+            "2010 : Petros Ghebrehiwot",
+            "2016-2020 : Bev Butkow"
+        ],
+        "Studio 9": [
+            "1992 : Isolde Krams",
+            "1995 : Kendell Geers",
+            "1996 : Belinda Blignaut",
+            "1997 : Hentie vd Merwe",
+            "1999-2009 : Bongi Bengu",
+            "2012 : Tshepo Mosopa",
+            "2015-2017 : Blessing Ngobeni",
+            "2018 : Zen Marie",
+            "2020 : Olivia Botha & Neville Starling"
+        ],
+        "Studio 10": [
+            "1992 : Cyril Manganyi",
+            "1998-2002 : Tamar Mason",
+            "2004-2020 : Diana Hyslop"
+        ],
+        "Studio 11": [
+            "1992-1994 : Monica von Molte",
+            "1995-1996 : Durant Sihlale",
+            "1997 : Wayne Barker",
+            "1999-2000 : Fatima Fernandes",
+            "2001-2004 : Paul Emmanuel",
+            "2005-2009 : Johan Thom",
+            "2010-2011 : Meyer Taub",
+            "2015-2019 : Asanda Kupa",
+            "2020 : Malebona Maphutse" 
+        ],
+        "Studio 12": [
+            "1997 : Samson Mnisi",
+            "2012 : Fidel Regueros",
+            "2017-2018 : Tshepo Masopa",
+            "2019-2020 : Richard Specs Ndimande"
+        ],
+        "Studio 13": [
+            "1992-1996 : Nikki Blumenfeldt & Helen Sibidi & Philani Mhlungu",
+            "1997-1999 : Bongi Dhlomo",
+            "2012-2020 : Gail Behrmann"
+        ],
+        "Studio 14": [
+            "1992 : Agrippa Nhlapo",
+            "2009 : Churchill Madikida",
+            "2010 : Mary Wafer",
+            "2011-2015 : Benon Lutaaya",
+            "2016-2019 : Usha Seejarim",
+            "2020 : Ross Passmoor"
+        ],
+        "Studio 15": [
+            "1996 : Ezrom Legae",
+            "1997-2007 : Rookeya Gardee",
+            "2009-2013 : Thenjiwe Nkosi",
+            "2015-2019 : Thonton Kabeya",
+            "2020 : Sandile Radebe"
+        ],
+        "Studio 16": [
+            "1991 : Thomas Nkuna",
+            "1992 : Gillian Solomon",
+            "2002-2005 : Verna Jooste",
+            "2007-2009 : Tracey Rose & Athi Patra Rega",
+            "2010 : Ricky Burnet",
+            "2011-2012 : Iris Dawn Parker",
+            "2015-2017 : Benon Lutaaya",
+            "2018 : Ramarutha Makoba",
+            "2019 : Olivia Botha",
+            "2020 : Dathini Mzayiya"
+        ],
+        "Studio 17": [
+            "1991-2006 : Joachim Schoenfeldt",
+            "2008-2011 : Nadine Hutton",
+            "2015-2017 : Tshepo Masopa",
+            "2018 : Richard Specs Ndimande"
+        ]
+    }
+
+    function addAreaHandlers() {
+        var areas = document.querySelectorAll('map[name="workmap"] area');
+        var tooltip = document.getElementById('tooltip');
+        var studioHistoryData = document.querySelector('.studio-history-data');
+
+        areas.forEach(function (area) {
+            area.addEventListener("mouseover", function (e) {
+                showTooltip(e, area.alt);
+            });
+
+            area.addEventListener("mouseout", function () {
+                hideTooltip();
+            });
+
+            area.addEventListener("click", function() {
+                displayStudioHistory(area.alt);
+            });
+        });
+
+        function showTooltip(event, altText) {
+            tooltip.style.display = 'block';
+            tooltip.innerHTML = altText;
+            tooltip.style.top = event.pageY + 'px';
+            tooltip.style.left = event.pageX + 'px';
+
+            if (studiosHistory.hasOwnProperty(altText)) {
+                studioHistoryData.innerHTML = ''; 
+
+                var studioHistoryList = document.createElement('ul');
+                studiosHistory[altText].forEach(function (historyItem) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = historyItem;
+                    studioHistoryList.appendChild(listItem);
+                });
+
+                studioHistoryData.appendChild(studioHistoryList);
+            } else {
+                studioHistoryData.innerHTML = 'No history available';
+            }
+        }
+
+        function hideTooltip() {
+            tooltip.style.display = 'none';
+            studioHistoryData.innerHTML = '';
+        }
+
+        function displayStudioHistory(studioName) {
+            if (studiosHistory.hasOwnProperty(studioName)) {
+                studioHistoryData.innerHTML = ''; 
+
+                var studioHistoryList = document.createElement('ul');
+                studiosHistory[studioName].forEach(function (historyItem) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = historyItem;
+                    studioHistoryList.appendChild(listItem);
+                });
+
+                studioHistoryData.appendChild(studioHistoryList);
+            } else {
+                studioHistoryData.innerHTML = 'No history available';
+            }
+        }
+    }
+</script>

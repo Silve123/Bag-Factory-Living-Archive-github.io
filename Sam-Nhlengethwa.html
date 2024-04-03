@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (max-width: 1024px)  {
+            .artist-info-picture-container {
+                flex-direction: column-reverse;
+            }
+            .info-container {
+                width: 100%;
+                padding: 1em 3em 3em 3em ;
+            }
+              .info-container p{
+                font-size: 3em;
+            }
+              .info-container h2{
+                font-size: 6em;
+            }
+            .artist-image-container{
+                width: 100%;
+                padding: 0 5em;
+                margin: 2em 0;
+            }
+            .artist-image-container img {
+                width: 80%;
+                padding: 0;
+            }
+            .image-info-container{
+                width: 70%;
+            }
+              .cv-button{
+                font-size: 2em !important;
+            }
+    
+        }
+          @media only screen and (min-width: 1025px)  {
+            .artist-image-container{
+                width: 50%;
+                padding-bottom: 5em;
+            }
+            .artist-image-container img {
+                width: 70%;
+                padding: 1em;
+            }
+            .info-container {
+                width: 50%;
+                padding: 3%;
+                height: 70vh;
+                color: white;
+            }
+            .info-container p{
+                font-size: 1em;
+            }
+        }
+    
+        .container-div{
+            width: 100%;
+            position: relative;
+        }
+    
+        .container-div:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            background-image: url('https://files.cargocollective.com/c2174104/hero.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -2;
+        }
+        .artist-header-container {
+            text-align: center;
+            height: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        .artist-info-picture-container {
+            display: flex;
+            height: auto;
+            padding: 2em 0 4em 0;
+              background-color: #000000c0;
+        }
+    
+        .artist-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .artist-image-container img {
+            height: auto;
+            border-radius: 50%;
+        }
+    
+        .info-container p, h2{
+            text-align: left;
+            color: white;
+            text-align: justify;
+        }
+    
+        .cv-button{
+            font-size:0.875em;
+            display:block;
+            left:-60px;
+            margin-top:35px;
+            margin-bottom: 2em;
+            color: black;
+            background-color: white;
+            border-radius: 0.5em;
+            padding: 1em 2em;
+            text-align: center;
+            max-width: fit-content;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .row{
+            display: flex;
+            flex-direction: row;
+            padding: 1em 0;
+            justify-content: space-around;
+            background-color: #000000c0;
+        }
+    
+        .myImg {
+            border-radius: 0.5em;
+            cursor: pointer;
+            transition: 0.3s;
+            width: auto;
+            max-width: 12vw;
+            height: 18vh;
+            opacity: 0.05;
+            border: 0.05em solid rgba(255, 255, 255, 0.514);
+        }
+        .myImg-div{
+            margin: 0 0.1em;
+            background-color: black;
+            width: max-content;
+            height: 18vh;
+            border-radius: 0.5em;
+        }
+    
+        .myImg:hover {
+            opacity: 1;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.925);
+        }
+    
+        .modal-content {
+            margin: auto;
+            margin-top: -4em;
+            display: block;
+            width: auto;
+            max-width: 60vw;
+            max-height: 75vh;
+        }
+    
+        #caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            font-style: italic;
+            font-variant: small-caps;
+        }
+        .image-info-container {
+            margin: auto;
+            padding: 0.5em 0;
+            display: block;
+            max-width: 55%;
+            text-align: center;
+            color: white;
+            background-color:rgb(43, 43, 43);
+        }
+        .image-title{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 2em;
+        }
+    
+        .single-line-description{
+            text-align: center;
+            font-style: italic;
+        }
+    
+        .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+    
+        .image-info-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .image-info-content{
+            color: grey;
+        }
+    
+        @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+        }
+    
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+    
+        .close {
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+    
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    
+        .next {
+            right: 0;
+        }
+    
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-div">
+        <div class="background-container"></div>
+        <div class="artist-header-container">
+            <div class="artist-info-picture-container" grid-row="" grid-pad="0" grid-gutter="0">
+                <div class="info-container" grid-col="x11" grid-pad="0">
+                    <h2><span style="color: #fff;">Sam Nhlengethwa</span></h2>
+                    <p>"I grew up in a family of music lovers," says Sam Nhlengethwa. "My two brothers collected jazz music and my eldest brother, who passed away, was a jazz musician. So that's where my love for jazz comes from. I think, to a certain extent, when I do things about jazz it's a tribute to my brother. We were the two people at home who really understood each other because we were both very active in the arts."
+    
+    Sam is renowned for his pulsing collage cut-ups, which capture the extreme energy of township life like a jazz anthem by Hugh Masekela. From 1970 he lived in KwaThema, near Springs, and it is the spirit of his home turf that shines through in the conjested, jivey township vignettes were an early hallmark.</p>
+                        <a class="cv-button" href="" target="_blank" title="Read CV">CV</a>
+                </div>
+                <div class="artist-image-container" grid-col="x11" grid-pad="0">
+                    <img src="https://freight.cargo.site/t/original/i/7827b32b3084a88d4322c88a437b48b99cbc4686dda39a6dea6d6a0f60c99c8f/Sam-Nhlengethwa.png">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" speed="10">            
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/f045f263ab5d5849caf69e6bb20e86a19020171549831a555958c2caf4d2ca5f/Untitled-III-After-Mine-Trip--Painting-on-Canvas-1999.jpeg" alt="Untitled III After Mine Trip" data-medium="Painting on Canvas" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/2afbbe8b19a8ee666dfe6c8e79f662b568e12106d00d567eaeb43c0023ccd025/Untitled-II-After-Mine-Trip--Painting-on-Canvas-1999.jpeg" alt="Untitled II After Mine Trip" data-medium="Painting on Canvas" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/b8676f0de80d0a5ecac772df40461b6303d53bb37b16d26d79695a227354889e/Miners2.png" alt="Miners 2" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/714d66a1aaa582b7594d1fd61a0606f1455c18a8f661f039862d209af32e41ee/Miners3.png" alt="Miners 3" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/b46c57d341d4d0338aaf79ddc4531790fd5160d669d4acf6c34ca821d9a76318/Waiting.png" alt="Waiting" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/6fbfa08b65f1130e0b65bd4d92e1fdf1ecdef749252f35c56a2b61001d92c640/Interiors1.png" alt="Interiors 1" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/6af98838b9ec85bfc741069aed6e81aabc29bece2733892ef504de67900cded6/Miners.png" alt="Miners" data-medium="" data-size="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/6fd8b8b3e565a460b2bbf3e03d09c433c70b087db549ce6b13d29fe7fafd29b8/Interiors.png" alt="Interiors" data-medium="" data-size="">
+                </div>
+                
+            </div>
+            <div id="myModal" class="modal" style="display: none;">
+                <span class="prev">❮</span>
+                <span class="next">❯</span>
+                <span class="close">×</span>
+                <img class="modal-content" id="img01" src="image1.jpg">
+                <div class="image-info-container">
+                    <div id="caption"></div>
+                    <p class="single-line-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentSlideInfo = 0;
+    
+        function openModal(index) {
+            currentSlideInfo = index;
+            showSlides();
+        }
+    
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    
+        function plusSlides(n) {
+            currentSlideInfo += n;
+            showSlides();
+        }
+    
+        function showSlides() {
+            const images = document.querySelectorAll('.myImg');
+            currentSlideInfo = (currentSlideInfo + images.length) % images.length;
+    
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+            document.getElementById('img01').src = images[currentSlideInfo].src;
+            document.getElementById('caption').innerHTML = images[currentSlideInfo].alt;
+    
+            const singleLineDescription = document.querySelector('.single-line-description');
+            singleLineDescription.innerHTML = `${images[currentSlideInfo].dataset.medium} ${images[currentSlideInfo].dataset.size}`;
+        }
+    
+        window.onload = function () {
+            const images = document.querySelectorAll('.myImg');
+            images.forEach((image, index) => {
+                image.onclick = function () {
+                    openModal(index);
+                };
+            });
+    
+            const span = document.getElementsByClassName('close')[0];
+            span.onclick = function () {
+                closeModal();
+            };
+    
+            const nextBtn = document.getElementsByClassName('next')[0];
+            const prevBtn = document.getElementsByClassName('prev')[0];
+    
+            nextBtn.onclick = function () {
+                plusSlides(1);
+            };
+    
+            prevBtn.onclick = function () {
+                plusSlides(-1);
+            };
+        };
+    </script>
+</body>
+</html>

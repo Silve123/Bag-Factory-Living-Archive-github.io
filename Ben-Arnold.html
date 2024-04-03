@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media only screen and (max-width: 1024px)  {
+            .artist-info-picture-container {
+                flex-direction: column-reverse;
+            }
+            .info-container {
+                width: 100%;
+                padding: 1em 3em 3em 3em ;
+            }
+              .info-container p{
+                font-size: 3em;
+            }
+              .info-container h2{
+                font-size: 6em;
+            }
+            .artist-image-container{
+                width: 100%;
+                padding: 0 5em;
+                margin: 2em 0;
+            }
+            .artist-image-container img {
+                width: 80%;
+                padding: 0;
+                filter: grayscale(100%);
+            }
+            .image-info-container{
+                width: 70%;
+            }
+              .cv-button{
+                font-size: 2em !important;
+            }
+    
+        }
+          @media only screen and (min-width: 1025px)  {
+            .artist-image-container{
+                width: 50%;
+                padding-bottom: 5em;
+            }
+            .artist-image-container img {
+                width: 70%;
+                padding: 1em;
+                filter: grayscale(100%);
+            }
+            .info-container {
+                width: 50%;
+                padding: 3%;
+                height: 70vh;
+                color: white;
+            }
+            .info-container p{
+                font-size: 1em;
+            }
+        }
+    
+        .container-div{
+            width: 100%;
+            position: relative;
+        }
+    
+        .container-div:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            background-image: url('https://files.cargocollective.com/c2174104/hero.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -2;
+        }
+        .artist-header-container {
+            text-align: center;
+            height: auto;
+            display: flex;
+            align-items: center;
+        }
+    
+        .artist-info-picture-container {
+            display: flex;
+            height: auto;
+            padding: 2em 0 4em 0;
+              background-color: #000000c0;
+        }
+    
+        .artist-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .artist-image-container img {
+            height: auto;
+            border-radius: 50%;
+        }
+    
+        .info-container p, h2{
+            text-align: left;
+            color: white;
+            text-align: justify;
+        }
+    
+        .cv-button{
+            font-size:0.875em;
+            display:block;
+            left:-60px;
+            margin-top:35px;
+            margin-bottom: 2em;
+            color: black;
+            background-color: white;
+            border-radius: 0.5em;
+            padding: 1em 2em;
+            text-align: center;
+            max-width: fit-content;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .row{
+            display: flex;
+            flex-direction: row;
+            padding: 1em 0;
+            justify-content: space-around;
+            background-color: #000000c0;
+        }
+    
+        .myImg {
+            border-radius: 0.5em;
+            cursor: pointer;
+            transition: 0.3s;
+            width: auto;
+            height: 18vh;
+            opacity: 0.05;
+            border: 0.05em solid rgba(255, 255, 255, 0.514);
+        }
+        .myImg-div{
+            margin: 0 0.1em;
+            background-color: black;
+            width: max-content;
+            height: 18vh;
+            border-radius: 0.5em;
+        }
+    
+        .myImg:hover {
+            opacity: 1;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.925);
+        }
+    
+        .modal-content {
+            margin: auto;
+            margin-top: -4em;
+            display: block;
+            width: auto;
+            max-height: 75vh;
+        }
+    
+        #caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            font-style: italic;
+            font-variant: small-caps;
+        }
+        .image-info-container {
+            margin: auto;
+            padding: 0.5em 0;
+            display: block;
+            max-width: 55%;
+            text-align: center;
+            color: white;
+            background-color:rgb(43, 43, 43);
+        }
+        .image-title{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 2em;
+        }
+    
+        .single-line-description{
+            text-align: center;
+            font-style: italic;
+        }
+    
+        .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+    
+        .image-info-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .image-info-content{
+            color: grey;
+        }
+    
+        @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+        }
+    
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+    
+        .close {
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+    
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    
+        .next {
+            right: 0;
+        }
+    
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-div">
+        <div class="background-container"></div>
+        <div class="artist-header-container">
+            <div class="artist-info-picture-container" grid-row="" grid-pad="0" grid-gutter="0">
+                <div class="info-container" grid-col="x11" grid-pad="0">
+                    <h2><span style="color: #fff;">Ben Arnold</span></h2>
+                    <p>Ben Arnold is a South African Postwar &amp; Contemporary artist who was born in 1942. Ben Arnold’s work
+                        has been offered at auction multiple times, with realized prices ranging from 91 USD to 200 USD,
+                        depending on the size and medium of the artwork. Since 2016 the record price for this artist at auction
+                        is 200 USD for Seated Figure, sold at Russell Kaplan Auctioneers in 2023.</p>
+                        <a class="cv-button" href="" target="_blank" title="Read CV">CV</a>
+                </div>
+                <div class="artist-image-container" grid-col="x11" grid-pad="0">
+                    <img src="https://freight.cargo.site/t/original/i/8fe16a9ae9d86be7de970407ebd77956c0c84d40c93d59c08fbc5353e2e6b70e/ben-arnold.jpg">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row" speed="10">
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/8de24373974ccf4db1c8b5695a3fa6bc8d38fc3bf7697d9ee4ffda7140606619/DSCN0683.JPG" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/cc598d36138c8b346f06bbe6f285311fa3dffdce9ece200e4f60c4ddde5d5f30/Ben02.jpg" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/47bbcc97d7b0956197d8fb3d7fb9ef12e6b3f4311f8f293eff0e6cc94342cd2e/Ben03.jpg" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/02912ea3e67ec20eab5810c9217c691d61232a1d06a544cef2427bedb7570fde/Ben04.jpg" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/47fd7df09508e5fb396b7a6e79f61887f19f0140a90d9f043054a362c2a76adc/Ben05.jpg" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/e26a6950b622bf1d37d2ca994705fe2a45c16abb43a8a911f777376025005feb/DSCN0685.JPG" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/2c96276d79a7fb5b94df5d106009d30f97609cf483d429fe62fb3b2d441b2366/DSCN0688.JPG" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/3cb05b424314bef29b9e17b12843a781e4321d8cc8ebf069566a139fb1272ad3/DSCN0689.JPG" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+                <div class="myImg-div">
+                    <img class="myImg" src="https://freight.cargo.site/t/original/i/13213bcb8235d55f7740e9c9ffdd172785ef413ce20bad4fcf302408a9052908/DSCN0690.JPG" alt="Untitled" data-medium="" data-size="" data-canvas="">
+                </div>
+            </div>
+            <div id="myModal" class="modal" style="display: none;">
+                <span class="prev">❮</span>
+                <span class="next">❯</span>
+                <span class="close">×</span>
+                <img class="modal-content" id="img01" src="image1.jpg">
+                <div class="image-info-container">
+                    <div id="caption"></div>
+                    <p class="single-line-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentSlideInfo = 0;
+    
+        function openModal(index) {
+            currentSlideInfo = index;
+            showSlides();
+        }
+    
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    
+        function plusSlides(n) {
+            currentSlideInfo += n;
+            showSlides();
+        }
+    
+        function showSlides() {
+            const images = document.querySelectorAll('.myImg');
+            currentSlideInfo = (currentSlideInfo + images.length) % images.length;
+    
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+            document.getElementById('img01').src = images[currentSlideInfo].src;
+            document.getElementById('caption').innerHTML = images[currentSlideInfo].alt;
+    
+            const singleLineDescription = document.querySelector('.single-line-description');
+            singleLineDescription.innerHTML = `${images[currentSlideInfo].dataset.medium} ${images[currentSlideInfo].dataset.size}`;
+        }
+    
+        window.onload = function () {
+            const images = document.querySelectorAll('.myImg');
+            images.forEach((image, index) => {
+                image.onclick = function () {
+                    openModal(index);
+                };
+            });
+    
+            const span = document.getElementsByClassName('close')[0];
+            span.onclick = function () {
+                closeModal();
+            };
+    
+            const nextBtn = document.getElementsByClassName('next')[0];
+            const prevBtn = document.getElementsByClassName('prev')[0];
+    
+            nextBtn.onclick = function () {
+                plusSlides(1);
+            };
+    
+            prevBtn.onclick = function () {
+                plusSlides(-1);
+            };
+        };
+    </script>
+</body>
+</html>
