@@ -16,9 +16,21 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
                 width: 5vw;
+                height: 100vh;
                 z-index: 1;
+                background-color: black;
             }
+
+            .banner-logo-image{
+                height: 10%;
+            }
+
+            .banner-image{
+                height: 90%;
+            }
+
             .banner-captions {
                 position: fixed;
                 top: 0;
@@ -176,7 +188,7 @@
             padding: 0;
             position: relative;
             top: 50px;
-            right: 5em !important;
+            right: 8em !important;
             margin-right: 1em;
         }
         .third-nav-list {
@@ -185,7 +197,7 @@
             padding: 0;
             position: relative;
             top: 50px; 
-            right: 10em !important; 
+            right: 16em !important; 
             margin-right: 1em !important;
         }
         .artists{
@@ -205,7 +217,7 @@
             <a href="/Bag-Factory-Living-Archive-github.io"><li>Home</li></a>
             <a href="/Bag-Factory-Living-Archive-github.io/About"><li>About</li></a>
             <a href="/Bag-Factory-Living-Archive-github.io/Timeline"><li>Timeline</li></a>
-            <a href="/Bag-Factory-Living-Archive-github.io/New-Events"><li>New & Events</li></a>
+            <a href="/Bag-Factory-Living-Archive-github.io/News-Events"><li>New & Events</li></a>
             <li onclick="toggleSecMenu()">Artists</li>
         </ul>
         <ul class="artists-nav-list second-nav-list">
@@ -213,6 +225,7 @@
             <li class="/Bag-Factory-Living-Archive-github.io/David-Koloane">David Koloane</li>
             <li class="/Bag-Factory-Living-Archive-github.io/Ben-Arnold">Ben Arnold</li>
             <li class="/Bag-Factory-Living-Archive-github.io/Sam-Nhlengethwa">Sam Nhlengethwa</li>
+            <li class="/Bag-Factory-Living-Archive-github.io/Diana-Hyslop">Diana Hyslop</li>
         </ul>
         <ul class="artists-nav-list third-nav-list">
         </ul>
@@ -221,7 +234,8 @@
         <div class="hero-div">
             <div class="hero-image-magnifier">
                 <div class="banner">
-                    <img src="https://freight.cargo.site/t/thumbnail/w/73/i/66e693aaccbccf8577efebba15bb875f44e68e3fc4e16e9257cd01b01eb3791c/Left-Banner.png" alt="Left-Banner">
+                    <img class="banner-logo-image" src="https://freight.cargo.site/t/original/i/d246fe77b2054702467626ecb98ea067cd9e0ee5f1dd0164591fcd95b7369e73/Bag-Facotry-Living-Archive-Project_Icon1.png" alt="Banner Logo">
+                    <img class="banner-image" src="https://freight.cargo.site/t/thumbnail/w/73/i/66e693aaccbccf8577efebba15bb875f44e68e3fc4e16e9257cd01b01eb3791c/Left-Banner.png" alt="Left-Banner">
                 </div>
                 <div class="banner-captions">
                     <p>Placeholder captions</p>
