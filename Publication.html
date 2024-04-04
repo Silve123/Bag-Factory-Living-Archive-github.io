@@ -163,8 +163,97 @@
                     opacity: 0;
                 }
             }
+            .nav-div{
+                display: none;
+            }
         }
         @media only screen and (max-width: 1349px)  {
+            /* Nav Styling */
+            .nav-div {
+                display: block;
+                position: fixed;
+                right: 1vw;
+                top: 0;
+                width: 20vw;
+                z-index: 999;
+            }
+        
+            .nav-div .manu {
+                background-color: rgba(255, 255, 255, 0.521);
+                border-radius: 0.5em;
+                font-size: 1.5em;
+                color: black;
+                width: 10vh;
+                position: absolute;
+                right: 0;
+                top: 0;
+                cursor: pointer;
+                margin-top: 0.5em;
+                padding: 0.3em 1em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .manu-icon{
+                width: 35px;
+                height: 5px;
+                background-color: black;
+                margin: 2px 0;
+            }
+        
+            .nav-div .manu:hover {
+                background-color: white;          
+            }
+        
+            .nav-div ul {
+                display: none;
+                list-style-type: none;
+                padding: 0;
+                position: absolute;
+                top: 50px; 
+                right: 0;
+            }
+            
+            .nav-div ul li {
+                border-radius: 0.5em;
+                border: 1px solid rgba(0, 0, 0, 0.664); 
+                background-color: white;
+                margin: 0.5em 0;
+                padding: 0.5em 1em;
+                cursor: pointer;
+                text-align: center;
+                font-size: 1em;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .nav-div ul li:hover {
+                background-color: rgba(0, 0, 0, 0.664);
+                color: white;
+            }
+        
+            .second-nav-list {
+                display: none;
+                list-style-type: none;
+                padding: 0;
+                position: relative;
+                top: 50px;
+                right: 6em !important;
+                margin-right: 1em;
+            }
+            .third-nav-list {
+                display: none;
+                list-style-type: none;
+                padding: 0;
+                position: relative;
+                top: 50px; 
+                right: 12em !important; 
+                margin-right: 1em !important;
+            }
+            .artists{
+                font-size: 1em !important;
+            }
             .desktop-prompt{
                 display: none;
             }
@@ -244,26 +333,50 @@
     </style>
 </head>
 <body>
+    <div class="nav-div">
+        <div class="manu" onclick="toggleMenu()">
+            <div class="manu-icon"></div>
+            <div class="manu-icon"></div>
+            <div class="manu-icon"></div>
+        </div>
+        <ul id="nav-list">
+            <a href="/Bag-Factory-Living-Archive-github.io"><li>Home</li></a>
+            <a href="/Bag-Factory-Living-Archive-github.io/About"><li>About</li></a>
+            <a href="/Bag-Factory-Living-Archive-github.io/Timeline"><li>Timeline</li></a>
+            <a href="/Bag-Factory-Living-Archive-github.io/Publication"><li>Publication</li></a>
+            <a href="/Bag-Factory-Living-Archive-github.io/News-Events"><li>New & Events</li></a>
+            <li onclick="toggleSecMenu()">Artists</li>
+        </ul>
+        <ul class="mobile-artists-nav-list second-nav-list">
+            <a href="/Bag-Factory-Living-Archive-github.io/Pat-Mautloa"><li class="artists">Pat Mautloa</li></a>
+            <li class="artists" href="/Bag-Factory-Living-Archive-github.io/David-Koloane">David Koloane</li>
+            <li class="artists" href="/Bag-Factory-Living-Archive-github.io/Ben-Arnold">Ben Arnold</li>
+            <li class="artists" href="/Bag-Factory-Living-Archive-github.io/Sam-Nhlengethwa">Sam Nhlengethwa</li>
+            <li class="artists" href="/Bag-Factory-Living-Archive-github.io/Diana-Hyslop">Diana Hyslop</li>
+        </ul>
+        <ul class="mobile-artists-nav-list third-nav-list">
+        </ul>
+    </div>
     <div class="main-nav-container">
         <div class="nav-container">
             <div class="nav-list-container">
                 <ul>
-                    <li><a href="Landing-Page">Home</a></li>
-                    <li><a href="About">About</a></li>
-                    <li><a href="Publication">Publication</a></li>
-                    <li><a href="News-Events">News Events</a></li>
-                    <li><a href="Timeline">Timeline</a></li>
+                    <li><a href="/Bag-Factory-Living-Archive-github.io/">Home</a></li>
+                    <li><a href="/Bag-Factory-Living-Archive-github.io/About">About</a></li>
+                    <li><a href="/Bag-Factory-Living-Archive-github.io/Publication">Publication</a></li>
+                    <li><a href="/Bag-Factory-Living-Archive-github.io/News-Events">News Events</a></li>
+                    <li><a href="/Bag-Factory-Living-Archive-github.io/Timeline">Timeline</a></li>
                     <li><a id="artists-button" href="" class="active">Artists</a></li>
                 </ul>
             </div>
         </div>
         <div class="artists-nav-list-container">
             <ul class="artists-nav-list">
-                <li class="artist"><a href="Pat-Mautloa">Pat Mautloa</a></li>
-                <li class="artist"><a href="David-Koloane">David Koloane</a></li>
-                <li class="artist"><a href="Ben-Arnold">Ben Arnold</a></li>
-                <li class="artist"><a href="Sam-Nhlengethwa">Sam Nhlengethwa</a></li>
-                <li class="artist"><a href="Diana-Hyslop">Diana Hyslop</a></li>
+                <li class="artist"><a href="/Bag-Factory-Living-Archive-github.io/Pat-Mautloa">Pat Mautloa</a></li>
+                <li class="artist"><a href="/Bag-Factory-Living-Archive-github.io/David-Koloane">David Koloane</a></li>
+                <li class="artist"><a href="/Bag-Factory-Living-Archive-github.io/Ben-Arnold">Ben Arnold</a></li>
+                <li class="artist"><a href="/Bag-Factory-Living-Archive-github.io/Sam-Nhlengethwa">Sam Nhlengethwa</a></li>
+                <li class="artist"><a href="/Bag-Factory-Living-Archive-github.io/Diana-Hyslop">Diana Hyslop</a></li>
             </ul>
         </div>
     </div>
@@ -526,6 +639,24 @@
                 navList.style.display = (navList.style.display === 'none' || navList.style.display === '') ? 'flex' : 'none';
             }
         });
+    </script>
+    <script>
+        function toggleMenu() {
+            var ul = document.getElementById('nav-list');
+            var artists = document.getElementsByClassName('mobile-artists-nav-list');
+    
+            ul.style.display = (ul.style.display === 'none' || ul.style.display === '') ? 'block' : 'none';
+            for (var i = 0; i < artists.length; i++) {
+                artists[i].style.display = (ul.style.display === 'none' || ul.style.display === '') ? 'none' : 'none';
+            }
+        }
+    
+        function toggleSecMenu() {
+            var artists = document.getElementsByClassName('mobile-artists-nav-list');
+            for (var i = 0; i < artists.length; i++) {
+                artists[i].style.display = (artists[i].style.display === 'none' || artists[i].style.display === '') ? 'block' : 'none';
+            }
+        }
     </script>
 </body>
 </html>
