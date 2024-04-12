@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline</title>
     <style>
+        body{
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
         /* nav styling start */
         .main-nav-container{
             top: 0 ;
@@ -14,7 +17,6 @@
             height: 10vh;
             display: flex;
             justify-content: center;
-
         }
         .nav-container{
             height: 5vh;
@@ -79,27 +81,27 @@
         }
         .nav-div{
             display: none;
+            position: fixed;
+            left: 5%;
+            top: 0;
+            width: 20vw;
         }
         @media only screen and (max-width: 1024px)  {
             .main-nav-container{
                 display: none !important;
             }
             /* Nav Styling */
-            .nav-div {
-                display: block;
-                position: fixed;
-                left: 1vw;
-                top: 1vh;
-                width: 20vw;
-                z-index: 999;
+            .nav-div{
+                display: flex;
             }
-        
+            
             .nav-div .manu {
                 background-color: rgba(0, 0, 0, 0.664);
                 border-radius: 0.5em;
                 font-size: 1.5em;
                 color: white;
                 width: 10vh;
+                position: absolute;
                 right: 0;
                 top: 0;
                 cursor: pointer;
@@ -127,12 +129,12 @@
                 padding: 0;
                 position: absolute;
                 top: 50px; 
-                left: 0;
+                right: 0;
             }
             
             .nav-div ul li {
                 border-radius: 0.5em;
-                border: 1.5px solid black; 
+                border: 1px solid rgba(0, 0, 0, 0.664); 
                 background-color: white;
                 margin: 0.5em 0;
                 padding: 0.5em 1em;
@@ -155,7 +157,7 @@
                 padding: 0;
                 position: relative;
                 top: 50px;
-                left: 7em !important;
+                right: 6em !important;
                 margin-right: 1em;
             }
             .third-nav-list {
@@ -164,7 +166,7 @@
                 padding: 0;
                 position: relative;
                 top: 50px; 
-                right: 14em !important; 
+                right: 12em !important; 
                 margin-right: 1em !important;
             }
             .artists{

@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        body{
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
         @media only screen and (min-width: 1350px)  {
             .mobile-container{
                 display: none;
             }
             .banner{
                 position: fixed;
+                cursor: pointer;
                 top: 0;
                 left: 0;
                 display: flex;
@@ -42,7 +46,7 @@
                 color: white;
                 align-items: center;
                 justify-content: center;
-                z-index: 0;
+                z-index: 2;
             }
 
             h1{
@@ -235,11 +239,11 @@
         <div class="hero-div">
             <div class="hero-image-magnifier">
                 <div class="banner">
-                    <img class="banner-logo-image" src="https://freight.cargo.site/t/original/i/d246fe77b2054702467626ecb98ea067cd9e0ee5f1dd0164591fcd95b7369e73/Bag-Facotry-Living-Archive-Project_Icon1.png" alt="Banner Logo">
+                    <img class="banner-logo-image" src="https://freight.cargo.site/t/original/i/430ea90159efddc5d639caaf63ba34a1af6fc73047c61d00e950d95869492efb/BF_CIRCLE-MAINlogoWHITE.png" alt="Banner Logo">
                     <img class="banner-image" src="https://freight.cargo.site/t/thumbnail/w/73/i/66e693aaccbccf8577efebba15bb875f44e68e3fc4e16e9257cd01b01eb3791c/Left-Banner.png" alt="Left-Banner">
                 </div>
                 <div class="banner-captions">
-                    <p>Placeholder captions</p>
+                    <p>Captions</p>
                 </div>
                 <div class="hero-container">
                     <img id="myimage" src="https://files.cargocollective.com/c2174104/hero.png" usemap="#workmap"><br>
@@ -351,21 +355,32 @@
             var areaTooltip = document.querySelector('.area-tooltip');
             var banner = document.querySelector('.banner');
 
-            banner.addEventListener('mouseenter', function () {
+            function debounce(func, delay) {
+                let timeoutId;
+                return function() {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(func, delay);
+                }
+            }
+
+            // Debounced event listener
+            banner.addEventListener('mouseenter', debounce(function () {
                 var bannerCaptions = document.querySelector('.banner-captions');
                 bannerCaptions.style.display = 'flex'; 
                 imgMagnifierGlass.style.display = 'none';
                 areaTooltip.style.display = 'none';
                 banner.style.display = 'none';
-            });
+            }, 1000)); 
 
-            banner.addEventListener('mouseleave', function () {
+
+
+            banner.addEventListener('mouseleave', debounce(function () {
                 var bannerCaptions = document.querySelector('.banner-captions');
                 bannerCaptions.style.display = 'none'; 
                 imgMagnifierGlass.style.display = 'block';
                 areaTooltip.style.display = 'block';
                 banner.style.display = 'flex';
-            });
+            },100));
 
             navDiv.addEventListener('mouseenter', function () {
                 imgMagnifierGlass.style.display = 'none';
