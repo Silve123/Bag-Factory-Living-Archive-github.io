@@ -1,0 +1,156 @@
+body{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+@media only screen and (min-width: 1350px)  {
+    body{
+        overflow: hidden;
+    }
+    .mobile-container{
+        display: none;
+    }
+    .banner{
+        position: fixed;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 5vw;
+        height: 100vh;
+        z-index: 1;
+        background-color: black;
+    }
+
+    .banner-logo-image{
+        height: 10%;
+    }
+
+    .banner-image{
+        height: 90%;
+    }
+
+    .banner-captions {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 5vw;
+        height: 100vh;
+        background-color: black;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    h1{
+        color: white;
+        font-weight: bold;
+        writing-mode: vertical-lr;
+        white-space: nowrap;
+        transform-origin: bottom;
+        font-size: 2.8vw;
+    }
+    area {
+        cursor: none;
+    }
+
+    .hero-div {
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-image-magnifier {
+        position: relative;
+        cursor: none;
+        display: flex;
+    }
+
+    .img-magnifier-glass {
+        position: absolute;
+        border: 2px solid #000;
+        border-radius: 50%;
+        cursor: none;
+        width: 100px;
+        height: 100px;
+        pointer-events: none;
+    }
+    .hero-container {
+        width: 100%;
+    }
+    .hero-container img {
+        margin-left: 1.5em;
+        margin-top: -0.5em;
+        width: 98vw;
+        height: 102vh;
+    }
+
+    .area-tooltip {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1349px)  {
+    .hero-image-magnifier{
+        display: none;
+    }
+    .mobile-container{
+        width: 100%;
+        height: auto;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .fixed-object {
+        width: min-content !important;
+    }
+    .image-container img{
+        width: 100%;
+        margin: 1%;
+        border-radius: 1em;
+    }
+    .image-container {
+        position: relative;
+        margin-left: 1%;
+        width: 50%;
+    }
+    
+    .image-name {
+        position: absolute;
+        width: max-content;
+        width: 50%;
+        margin: 1%;
+        top: 0;
+        left: 0;
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.89); /* semi-transparent background */
+        border-radius: 1em 0 0 0;
+        padding: 5px;
+        font-size: 3vw;
+    }
+}
+
+.fixed-object {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 5vw; 
+    height: 10%;
+    z-index: 9999; 
+}
+
+.sidebar-open {
+    width: min-content;
+    height: 100%;
+}
