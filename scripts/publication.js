@@ -186,17 +186,15 @@ function addAreaHandlers() {
     }
 }
 
-// Select the fixed-topbar-object element
+// scrolling z-index handiling to enable hover for the map
 const fixedTopbar = document.querySelector('.fixed-topbar-object');
 
 // Add a scroll event listener to the window
 window.addEventListener('scroll', function() {
     // Check if the vertical scroll position is greater than 0
     if (window.scrollY > 100) {
-        // If scrolled, set the z-index to 3
         fixedTopbar.style.zIndex = '3';
     } else {
-        // If not scrolled, revert to the original z-index value (1 in this case)
         fixedTopbar.style.zIndex = '1';
     }
 });
