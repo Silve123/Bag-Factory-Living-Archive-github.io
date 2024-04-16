@@ -35,22 +35,23 @@ li{
     list-style-type: none;
 }
 .nav-list-container ul li a{
-    color: white;
+    color: rgba(255, 255, 255, 0.384);
     margin: 0 0.5em;
     padding: 0.5em 1em;
     font-size: 1em;
     text-decoration: none;
 }
 .artists-nav-list li a{
-    color: white;
+    color: rgba(255, 255, 255, 0.384);
     padding: 0.5em 1em;
     font-size: 1vw;
     margin-left: -2vw;
     text-decoration: none;
 }
 .nav-list-container ul li a:hover, .artists-nav-list li a:hover{
-    background-color: orange;
-    color: black;
+    
+    
+    color: white;
     border-radius: 1em;
 }
 .artists-nav-list-container{
