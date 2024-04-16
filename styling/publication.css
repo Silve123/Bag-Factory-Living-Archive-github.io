@@ -6,7 +6,7 @@ body{
     .holding_container{
         position: relative;
         margin-top: 4em;
-        z-index: 998;
+        z-index: 2;
     }
     .hero-container {
         width: 100%;
