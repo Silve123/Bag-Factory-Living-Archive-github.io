@@ -1,0 +1,206 @@
+body{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+@media only screen and (min-width: 1350px)  {
+    .holding_container{
+        position: relative;
+        margin-top: 4em;
+        z-index: 998;
+    }
+    .hero-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-container img {
+        width: 70%;
+        height: auto;
+    }
+
+    .area-tooltip {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        display: none;
+    }
+    .area-tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+    }
+    .area{
+        cursor: crosshair;
+    }
+    .studio-history{
+        width: 30%;
+        height: 100vh;
+        max-height: fit-content;
+        background-color: black;
+        padding: 0.5em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:flex-start;
+    }
+    .studio-history h1{
+        color: white;
+        text-align: center;
+        font-size: 3em;
+        margin-top: 1.5em;
+    }
+    .studio-history-data{
+        border-radius: 1em;
+        background-color: white;
+        height: 50%;
+        max-height: fit-content;
+        width: 90%;
+        color: black;
+        padding-bottom: 1em;
+    }
+    .studio-history-data ul li{
+        list-style-type: none;
+        font-size: 1em;
+    }
+    .mobile-prompt{
+        display: none;
+    }
+    .desktop-prompt{
+        text-align: center;
+        width: 60%;
+        margin-top: 1em;
+        color: orange;
+        animation: blinker 2s linear infinite;
+    }
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    .nav-div{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1349px)  {
+    .holding_container{
+        margin-top: -6em;
+    }
+    .desktop-prompt{
+        display: none;
+    }
+    .mobile-prompt{
+        font-size: 1.5em;
+        text-align: center;
+        margin: 1em 0;
+        color: orange;
+        animation: blinker 3s linear infinite;
+    }
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    .hero-container img {
+        width: 100%;
+        height: auto;
+    }
+    .area-tooltip {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        display: none;
+    }
+    .area-tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+    }
+    .area{
+        cursor: crosshair;
+    }
+    .studio-history{
+        width: 100%;
+        background-color: black;
+        height: auto;
+        min-height: 30vh;
+        max-height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .studio-history h1{
+        color: white;
+        text-align: center;
+        font-size: 5vw;
+        margin-top: 1em;
+    }
+    .studio-history-data{
+        border-radius: 1em;
+        background-color: white;
+        width: 90%;
+        height: 70%;
+        min-height: 30%;
+        max-height: max-content;
+        color: black;
+        margin-bottom: 1em;
+        padding-top: 1em;
+        padding: 1em;
+    }
+    .studio-history-data ul li{
+        list-style-type: none;
+        font-size: 4vw;
+    }
+    #tooltip{
+        display: none;
+    }
+}
+
+/* objects styling start */
+.footer-object{
+    position:absolute;
+    width: 99%;
+    height: 30vh;
+    z-index: 998;
+}
+
+@media only screen and (min-width: 1350px)  {
+    .fixed-sidebar-object{
+        display: none;
+    }
+    .fixed-topbar-object{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; 
+    }
+}
+
+@media only screen and (max-width: 1350px)  {
+    .fixed-sidebar-object {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 15%;
+        height: 10%;
+        z-index: 999; 
+    }
+    .sidebar-open {
+        width: min-content;
+        height: 100%;
+    }
+}
