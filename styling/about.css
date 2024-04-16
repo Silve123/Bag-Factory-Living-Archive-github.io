@@ -1,6 +1,7 @@
 body{
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
+
 .about-container{
     display: flex;
     flex-direction: column;
@@ -10,20 +11,36 @@ body{
     text-align: justify;
     margin-top: 1.5em;
 }
+
 .about-container p{
     width: 80%;
     font-size: 1.5vw;
 }
+
 .about-container h2{
     font-weight: bold;
     font-style: italic;
     font-size: 3vw;
 }
+
+.footer-object{
+    position:absolute;
+    width: 99%;
+    height: 30vh;
+}
+
 @media only screen and (max-width: 480px)  {
     .about-container p{
-        font-size: 5vw;
+        font-size: 4.5vw;
     }
 }
+
+@media only screen and (min-width: 480px) and (max-width: 1350px) {
+    .about-container p{
+        font-size: 3.5vw;
+    }
+}
+
 
 @media only screen and (min-width: 1350px)  {
     .fixed-sidebar-object{
