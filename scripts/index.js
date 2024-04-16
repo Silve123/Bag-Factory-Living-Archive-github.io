@@ -2,9 +2,9 @@ function updateSidebarStatus() {
     var isSidebarOpen = localStorage.getItem('sidebarOpen');
 
     if (isSidebarOpen) {
-        document.querySelector('.fixed-object').classList.add('sidebar-open');
+        document.querySelector('.fixed-sidebar-object').classList.add('sidebar-open');
     } else {
-        document.querySelector('.fixed-object').classList.remove('sidebar-open');
+        document.querySelector('.fixed-sidebar-object').classList.remove('sidebar-open');
     }
 }
 updateSidebarStatus();
@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     addClickHandlers();
 
     // banner management
-    var imgMagnifierGlass = document.querySelector('.img-magnifier-glass');
-    var areaTooltip = document.querySelector('.area-tooltip');
     var banner = document.querySelector('.banner');
     var bannerCaptionDiv = document.querySelector('.banner-captions');
 
@@ -104,7 +102,7 @@ if (typeof magnify !== 'function') {
 
             /* Check if the cursor is over an area and update the magnifier's border color */
             const isOverArea = e.target.tagName === 'AREA' || e.target.closest('area');
-            glass.style.borderColor = isOverArea ? 'gold' : 'black';
+            glass.style.borderColor = isOverArea ? 'orange' : 'black';
 
             glass.style.left = (x - w) + "px";
             glass.style.top = (y - h) + "px";

@@ -1,3 +1,8 @@
+function navigateTo(url) {
+    console.log('in navigate to');
+    window.location.href = url;
+}
+
 function openNav() {
     if (document.getElementById("mySidenav").style.width !== "0px" && document.getElementById("main").style.marginRight !== "0px") {
         closeNav();
@@ -8,7 +13,6 @@ function openNav() {
         console.log(localStorage.getItem('sidebarOpen'));
     }
 }
-
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";

@@ -111,7 +111,7 @@ body{
         flex-direction: row;
         justify-content: space-evenly;
     }
-    .fixed-object {
+    .fixed-sidebar-object {
         width: min-content !important;
     }
     .image-container img{
@@ -141,7 +141,7 @@ body{
     }
 }
 
-.fixed-object {
+.fixed-sidebar-object {
     position: fixed;
     top: 0;
     right: 0;
