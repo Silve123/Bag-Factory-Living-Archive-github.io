@@ -1,11 +1,11 @@
 body{
     font-family: 'Helvetica', 'Arial', sans-serif;
-    margin-top: 5em;
 }
 .myImg{
     height: 8vh;
 }
 .main-container{
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,12 +100,15 @@ body{
 }
 
 @media only screen and (max-width: 1200px) {
+    html, body{
+        overflow-y: hidden;
+    }
     .section-container p {
         font-size: 3vw !important;
     }
 
     .main-container {
-        margin-top: 0;
+        margin-top: -6em;
         width: 600vw;
         height: 90vh;
     }
@@ -267,10 +270,24 @@ body{
 }
 
 @media only screen and (max-width: 1350px)  {
+    .footer-object{
+        position: fixed;
+        left: 0;
+        bottom: -3em;
+    }
+    
+    .footer-hiding{
+        bottom: 0em;
+    }
+
+    .footer-hiding{
+        font-size: 2vw;
+    }
+
     .fixed-sidebar-object {
         position: fixed;
         top: 0;
-        right: 0;
+        right: 1em;
         width: 15%;
         height: 10%;
         z-index: 999; 

@@ -53,6 +53,9 @@ img:hover{
         height: 30vh;
         opacity: 1;
     }
+    h2{
+        font-size: 3vw;
+    }
 }
 
 @media only screen and (min-width: 1200px)  {
