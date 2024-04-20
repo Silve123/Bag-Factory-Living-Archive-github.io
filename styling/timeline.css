@@ -266,6 +266,9 @@ body{
         height: 100%;
         z-index: 996; 
     }
+    .topbar-artists-open{
+        z-index: 999;
+    }
     
 }
 

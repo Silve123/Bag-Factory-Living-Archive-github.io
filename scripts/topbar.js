@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function toggleNavListVisibility(navList) {
-        navList.style.display = (navList.style.display === 'none' || navList.style.display === '') ? 'flex' : 'none';
+        if(navList.style.display === 'none' ){
+            navList.style.display = 'flex';
+            localStorage.setItem('topBarArtistsOpen', 'true');
+        } else{
+            navList.style.display = 'none';
+            localStorage.removeItem('topBarArtistsOpen');
+        }
     }
 });
 

@@ -186,15 +186,22 @@ function addAreaHandlers() {
     }
 }
 
-// scrolling z-index handiling to enable hover for the map
-const fixedTopbar = document.querySelector('.fixed-topbar-object');
+function updateSidebarStatusAndTopBar() {
+    var isSidebarOpen = localStorage.getItem('sidebarOpen');
+    var isTopbarArtistsOpen = localStorage.getItem('topBarArtistsOpen');
 
-// Add a scroll event listener to the window
-window.addEventListener('scroll', function() {
-    // Check if the vertical scroll position is greater than 0
-    if (window.scrollY > 100) {
-        fixedTopbar.style.zIndex = '3';
+    if (isSidebarOpen) {
+        document.querySelector('.fixed-sidebar-object').classList.add('sidebar-open');
     } else {
-        fixedTopbar.style.zIndex = '1';
+        document.querySelector('.fixed-sidebar-object').classList.remove('sidebar-open');
     }
-});
+
+    if (isTopbarArtistsOpen) {
+        document.querySelector('.fixed-topbar-object').classList.add('topbar-artists-open');
+    } else {
+        document.querySelector('.fixed-topbar-object').classList.remove('topbar-artists-open');
+    }
+}
+
+updateSidebarStatusAndTopBar();
+setInterval(updateSidebarStatusAndTopBar, 10);
