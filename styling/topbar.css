@@ -21,10 +21,6 @@
     align-items: center;
     width: 85%;
     border-radius: 1em;
-    background-color: rgba(0, 0, 0, 0.63);
-}
-.nav-list-container:hover{
-    background-color: black;
 }
 .nav-list-container ul {
     margin-top: 1em;
@@ -35,28 +31,25 @@ li{
     list-style-type: none;
 }
 .nav-list-container ul li a{
-    color: rgba(255, 255, 255, 0.384);
+    color: rgb(148, 148, 148);
     margin: 0 0.5em;
     padding: 0.5em 1em;
-    font-size: 1em;
+    font-size: 18px;
     text-decoration: none;
 }
 .artists-nav-list li a{
-    color: rgba(255, 255, 255, 0.384);
+    color: rgb(148, 148, 148);
     padding: 0.5em 1em;
-    font-size: 1vw;
+    font-size: 12px;
     margin-left: -2vw;
     text-decoration: none;
+    text-transform: uppercase;
 }
 .nav-list-container ul li a:hover, .artists-nav-list li a:hover{
-    
-    
-    color: white;
-    border-radius: 1em;
+    color: black;
 }
 .artists-nav-list-container{
     display: none;
-    background-color: rgba(0, 0, 0, 0.63);
     height: 95vh;
     width: 25vw;
     justify-content: center;
@@ -67,9 +60,6 @@ li{
 }
 .artists-nav-list-container::-webkit-scrollbar {
     display: none;
-}
-.artists-nav-list-container:hover{
-    background-color: black;
 }
 .artists-nav-list {
     border-radius: 1em;

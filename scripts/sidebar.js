@@ -18,4 +18,12 @@ function closeNav() {
     document.getElementById("main").style.marginRight= "0";
     localStorage.removeItem('sidebarOpen');
 }
+
+function openArtists() {
+    if (document.getElementById("artistsDiv").style.display !== "none"){
+        document.getElementById("artistsDiv").style.display = "none"
+    }else{
+        document.getElementById("artistsDiv").style.display = "block"
+    }
+}
 localStorage.removeItem('sidebarOpen');
