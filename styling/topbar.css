@@ -1,3 +1,6 @@
+body{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
 .main-nav-container{
     position: fixed;
     width: 100%;
@@ -14,6 +17,7 @@
     border-radius: 1em;
 }
 .nav-list-container{
+    background-color: white;
     min-height: 5vh;
     max-height: 7vh;
     display: flex;
@@ -34,7 +38,7 @@ li{
     color: rgb(148, 148, 148);
     margin: 0 0.5em;
     padding: 0.5em 1em;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
 }
 .artists-nav-list li a{
@@ -49,6 +53,7 @@ li{
     color: black;
 }
 .artists-nav-list-container{
+    background-color: white;
     display: none;
     height: 95vh;
     width: 25vw;

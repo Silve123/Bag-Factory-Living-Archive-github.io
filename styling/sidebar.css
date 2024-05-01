@@ -12,6 +12,7 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding: 60px 0;
+    background-color: white;
 }
 .sidenav a{
     text-transform: uppercase;
@@ -30,10 +31,10 @@ body {
     font-size: 12px;
     font-style: italic;
 }
-/* 
+
 .sidenav a:hover {
-    color: #f1f1f1;
-} */
+    color: black;
+}
 
 .sidenav .closebtn {
     position: absolute;
