@@ -1,5 +1,6 @@
 body{
     font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
 }
 .main-nav-container{
     position: fixed;
@@ -9,12 +10,11 @@ body{
     z-index: 999;
 }
 .nav-container{
+    left: 0;
     height: auto;
-    width: 80vw;
-    padding: 1vh 1vw;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
-    border-radius: 1em;
 }
 .nav-list-container{
     background-color: white;
@@ -23,8 +23,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 85%;
-    border-radius: 1em;
+    width: 100%;
 }
 .nav-list-container ul {
     margin-top: 1em;
